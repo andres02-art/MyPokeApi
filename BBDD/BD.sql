@@ -8,8 +8,9 @@ create or replace table person(
     lastname text not null, 
     fristName text null default concat(name, lastname),
     brithDate date null,
-    deathDate date null, 
+    deathDate date null,
     description text null default "none",
+    __credentials int(10:) unique not null,
     primary key(ID_Person)
 )engine=innodb;
 
