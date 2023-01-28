@@ -25,14 +25,14 @@ create or replace table users(
     _Security varchar(30) unique not null,
     _account boolean not null default true,
     primary key(ID_User),
-    index `UserPerson`(`no`, `PrsID_Person`),
+    index `UserPerson`(no, PrsID_Person),
     constraint FKusr_Psrs
         foreign key (PrsID_Person) references person(ID_Person)
         on update cascade
         on delete cascade
 )engine=innodb;
 
-create or replace table developer(
+create or replace table _developer(
     ID_Developer varchar(30) unique default concat(no, PrsID_Person) not null, 
     no varchar(15) unique not null, 
     PrsID_Person varchar(15) unique not null, 
@@ -40,7 +40,7 @@ create or replace table developer(
     _address text not null, 
     _account boolean not null default true,
     primary key(ID_Developer), 
-    index `DeveloperPerson`(`no`, `PrsID_Person`), 
+    index `DeveloperPerson`(no, PrsID_Person), 
     constraint FKDev_Prs
         foreign key (PrsID_Person) references person(ID_Person)
         on update cascade
@@ -54,9 +54,9 @@ create or replace table report(
     _sendDate date not null, 
     _system text not null, 
     primary key(ID_Report), 
-    index `ReportDeveloper`(`ID_Report`, `DevID_Developer`), 
+    index `ReportDeveloper`(ID_Report, DevID_Developer), 
     constraint FKRep_Dev
-        foreign key(DevID_Developer) references developer(ID_Developer)
+        foreign key(DevID_Developer) references _developer(ID_Developer)
         on update cascade
         on delete cascade
 )engine=innodb;
@@ -65,10 +65,89 @@ create or replace table reports_x_user(
     no bigint AUTO_INCREMENT unique not null, 
     RepID_Report varchar(30) unique not null, 
     UsrID_User varchar(30) unique not null, 
-    index `RpUUser`(`no`, `UsrID_User`), 
-    index `RpUReport`(`no`, `RepID_Report`), 
+    index `RpUUser`(no, UsrID_User), 
+    index `RpUReport`(no, RepID_Report), 
+    primary key(no),
     constraint FkRPUUsr
         foreign key(UsrID_User) references users(ID_User),
     constraint FKRPU
         foreign key(RepID_Report) references report(ID_Report)
+)engine=innodb;
+
+create or replace table _security(
+    no varchar(30) unique not null, 
+    _code varchar(8) unique null, 
+    _status boolean not null default false, 
+    _date date not null default CURRENT_DATE, 
+    primary key(no),
+    index `_securityuser`(no),
+    constraint FK_scUsr
+        foreign key(no) references users(ID_User)
+        on update cascade
+        on delete cascade
+)engine=innodb;
+
+create or replace table external_domine(
+    ID_External_Domine varchar(30) unique not null, 
+    _link text unique not null, 
+    _domine text unique not null, 
+    _ip text unique null, 
+    _name text unique not null, 
+    _request text not null, 
+    primary key(ID_External_Domine)
+)engine=innodb;
+
+create or replace table search(
+    ID_Search varchar(30) unique not null, 
+    UsrID_User varchar(30) unique not null, 
+    EdID_External_Domine varchar(30) unique not null, 
+    __pokemon varchar(50) unique not null, 
+    __date date not null default CURRENT_DATE, 
+    primary key(ID_Search), 
+    index `SearchUser`(ID_Search, UsrID_User),
+    index `SearchExternalDomine`(ID_Search, EdID_External_Domine),
+    constraint FkSrhUsr
+        foreign key(UsrID_User) references users(ID_User), 
+    constraint FkSrhED
+        foreign key(EdID_External_Domine) references external_domine(ID_External_Domine)
+)engine=innodb;
+
+create or replace table views(
+    ID_View varchar(15) unique not null, 
+    SrhID_Search varchar(30) unique not null, 
+    _Pokemon text not null, 
+    primary key(ID_View), 
+    index `ViewsSearch`(ID_View, SrhID_Search),
+    constraint FKVwsSrh
+        foreign key(SrhID_Search) references search(ID_Search)
+)engine=innodb;
+
+create or replace table pokemon(
+    ID_Pokemon varchar(30) default concat(no, VwID_View) unique not null, 
+    no varchar(15) unique not null, 
+    VwID_View varchar(15) unique not null, 
+    _name text not null, 
+    _abilities text not null, 
+    _picture binary not null, 
+    _description text not null default "none", 
+    _Response text not null, 
+    primary key(ID_Pokemon), 
+    index `PokemonView`(no, VwID_View), 
+    constraint FkPokViw
+        foreign key(VwID_View) references views(ID_View)
+        on update cascade
+        on delete cascade
+)engine=innodb;
+
+create or replace table response(
+    no varchar(30) unique not null, 
+    EdID_External_Domine varchar(30) unique not null, 
+    _pokemon text not null,
+    primary key(no), 
+    index `ResponsePokemon`(no), 
+    index `ResponseDomine`(no, EdID_External_Domine),
+    constraint FkPokRes
+        foreign key(no) references pokemon(ID_Pokemon),
+    constraint FkResED
+        foreign key(no) references external_domine(ID_External_Domine)
 )engine=innodb;
