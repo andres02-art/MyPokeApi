@@ -24,6 +24,11 @@ El Front-end del aplicativo será realizado con html, js y sass que permitiran t
 
 • StarUml: https://staruml.io
 
+# Instalación
+Como anteriormente se a mensionado, el aplicativo usara XAMPP para ejecutarse por lo tanto; se devera instalar y correr desde esta aplicación, si no la tiene puede acceder al link de XAMPP escrito en este archivo intalarlo y posteriormente clonar el repositorio en XAMPP/htdocs.
+
+tambien puede acceder a la carpeta install donde encontrará .ps1 para windows e instalar el aplicativo. (mas informacion en dicha carpeta)
+
 # Versionado
 Se caracterizará por tener un desarrollo tipo espiral, de este modo el aplicativo puede ser reevaluado y rediseñado en diversas versiones de codigo; por tal motivo, se debe documentar cada cambio desde la ultima version existente del diagrama general en StarUml adjuntado a este proyecto
 
