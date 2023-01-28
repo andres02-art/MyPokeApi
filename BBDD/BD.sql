@@ -1,7 +1,9 @@
 DROP database if exists mypokebd;
 create database mypokebd character set = "utf8mb4" collate = "utf8mb4_unicode_nopad_ci";
 
-
+/*
+Creación estructurada de la base de datos desde las tablas o diagramado ER en starUMl
+*/
 create or replace table person(
     ID_Person varchar(15) unique not null,
     name text not null, 
@@ -22,7 +24,7 @@ create or replace table users(
     _registerDate date not null, 
     __address text not null, 
     _password text not null, 
-    _Security varchar(30) unique not null,
+    _Security varchar(30) unique not null default concat(no, PrsID_Person),
     _account boolean not null default true,
     primary key(ID_User),
     index `UserPerson`(no, PrsID_Person),
@@ -112,42 +114,37 @@ create or replace table search(
         foreign key(EdID_External_Domine) references external_domine(ID_External_Domine)
 )engine=innodb;
 
-create or replace table views(
-    ID_View varchar(15) unique not null, 
-    SrhID_Search varchar(30) unique not null, 
-    _Pokemon text not null, 
-    primary key(ID_View), 
-    index `ViewsSearch`(ID_View, SrhID_Search),
-    constraint FKVwsSrh
-        foreign key(SrhID_Search) references search(ID_Search)
+create or replace table response(
+    no varchar(30) unique not null, 
+    _pokemon text not null,
+    primary key(no), 
+    index `ResponseDomine`(no),
+    constraint FkResED
+        foreign key(no) references external_domine(ID_External_Domine)
+        on update cascade
 )engine=innodb;
 
 create or replace table pokemon(
-    ID_Pokemon varchar(30) default concat(no, VwID_View) unique not null, 
-    no varchar(15) unique not null, 
-    VwID_View varchar(15) unique not null, 
+    ID_Pokemon varchar(30) unique not null, 
+    ResID_Response varchar(30) unique not null,
     _name text not null, 
     _abilities text not null, 
     _picture binary not null, 
     _description text not null default "none", 
-    _Response text not null, 
     primary key(ID_Pokemon), 
-    index `PokemonView`(no, VwID_View), 
-    constraint FkPokViw
-        foreign key(VwID_View) references views(ID_View)
+    index `PokemonResponse`(ID_Pokemon, ResID_Response),
+    constraint FkPokRes
+        foreign key(ResID_Response) references response(no)
         on update cascade
-        on delete cascade
 )engine=innodb;
 
-create or replace table response(
+create or replace table views(
     no varchar(30) unique not null, 
-    EdID_External_Domine varchar(30) unique not null, 
-    _pokemon text not null,
+    _Pokemon text not null, 
     primary key(no), 
-    index `ResponsePokemon`(no), 
-    index `ResponseDomine`(no, EdID_External_Domine),
-    constraint FkPokRes
-        foreign key(no) references pokemon(ID_Pokemon),
-    constraint FkResED
-        foreign key(no) references external_domine(ID_External_Domine)
+    index `viewpokemon`(no),
+    constraint FKVwsPok
+        foreign key(no) references pokemon(ID_Pokemon)
+        on delete cascade
+        on update cascade
 )engine=innodb;
