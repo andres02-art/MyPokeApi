@@ -23,6 +23,8 @@ Permite asignar un poquemon a una view
 create or replace definer=root@localhost trigger _ViewPokemon after insert on pokemon
 for each row
 begin
-    insert into views()
+    insert into views(no, _Pokemon)
+    values(new.ID_Pokemon, new.ResID_Response);
 end;;
+
 Delimiter ;

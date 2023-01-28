@@ -126,7 +126,7 @@ create or replace table response(
 
 create or replace table pokemon(
     ID_Pokemon varchar(30) unique not null, 
-    ResID_Response varchar(30) unique not null,
+    ResID_Response varchar(30) unique null,
     _name text not null, 
     _abilities text not null, 
     _picture binary not null, 
