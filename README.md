@@ -19,7 +19,9 @@ El Back-end del aplicativo será desarrollado en php y sql sentences, es decir q
 El Front-end del aplicativo será realizado con html, js y sass que permitiran tener un desarrollo completo de los MockUps realizados con ayuda de el aplicativo Figma de uso libre de donde se exportarán todos los diseños, img y svgs que usará la plataforma html creada. Los Mockups fueron creados despues de un diagrama general echo en StarUml
 
 • Figma: https://www.figma.com
+
 • MockUps: https://www.figma.com/file/vKtaRgGazQbJClikgakM66/PokeApi?node-id=3%3A2&t=gjTpev3YFEhwX0Pd-1
+
 • StarUml: https://staruml.io
 
 # Versionado
