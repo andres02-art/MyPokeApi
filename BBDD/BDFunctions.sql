@@ -66,6 +66,34 @@ begin
     end if;
 end;;
 
+/*
 
+*/
+
+create or replace definer=root@localhost trigger UsersPerson before insert on users
+for each row
+begin
+    new.name = (select name from person Where person.ID_Person = new.PrsID_Person)
+    new.lastname = (select lastname from person Where person.ID_Person = new.PrsID_Person)
+    new.fristName = (select fristName from person Where person.ID_Person = new.PrsID_Person)
+    new.brithDate = (select brithDate from person Where person.ID_Person = new.PrsID_Person)
+    new.deathDate = (select deathDate from person Where person.ID_Person = new.PrsID_Person)
+    new.description = (select description from person Where person.ID_Person = new.PrsID_Person)
+    new.__credentials = (select __credentials from person Where person.ID_Person = new.PrsID_Person)
+
+end;;
+
+create or replace definer=root@localhost trigger DeveloperPerson before insert on _developer
+for each row
+begin
+    new.name = (select name from person Where person.ID_Person = new.PrsID_Person)
+    new.lastname = (select lastname from person Where person.ID_Person = new.PrsID_Person)
+    new.fristName = (select fristName from person Where person.ID_Person = new.PrsID_Person)
+    new.brithDate = (select brithDate from person Where person.ID_Person = new.PrsID_Person)
+    new.deathDate = (select deathDate from person Where person.ID_Person = new.PrsID_Person)
+    new.description = (select description from person Where person.ID_Person = new.PrsID_Person)
+    new.__credentials = (select __credentials from person Where person.ID_Person = new.PrsID_Person)
+
+end;;
 
 DELIMITER ;
