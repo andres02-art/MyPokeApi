@@ -29,42 +29,14 @@ end;;
 
 /*
 Permite generar y borrar un codigo
-    DELIMITER $$
-    create or replace definer=root@localhost event _CodeBraker on schedule every 1 MINUTE starts CURRENT_DATE on completion preserve enable
-    do
-    begin
-        select _code from _security;
-        SELECT * FROM pokemon;
-    end$$
-    create or replace definer=root@localhost event _Codebroken on schedule at CURRENT_TIMESTAMP + 500 on completion not preserve enable 
-    do
-    begin
-        update _security set _code = DEFAULT Where no = idSecurebox;
-    end$$
-    DELIMITER ;;
-DELIMITER ;;
-create or replace definer=root@localhost procedure CreateTimelapCodeEvent(in idSecurebox varchar(30), in Time_Max date)not deterministic contains sql sql security invoker
-begin
-	DECLARE timelaps int;
-    WHILE (select Time_Max) > (SELECT timelaps)
-    DO
-    	CREATE or REPLACE TABLE timelapse ENGINE=INNODB; 
-        SET timelaps = CURRENT_TIMESTAMP;
-    END WHILE;
-    DROP TABLE timelapse;
-    update _security set _code = default Where no = idSecurebox;
-end;;
+    codeBraker function desencripta el codigo
+    codeBroken event elimina el codigo
+    codeMaker encripta el codigo
 */
 
-create or replace definer=root@localhost function _CodeMaker(idSecurebox varchar(30), _codeSet varchar(8)) returns text not deterministic contains sql sql security invoker
+create or replace definer=root@localhost function _CodeBraker(_codeSet varchar(8)) returns text not deterministic contains sql sql security invoker
 begin
-    declare _maker text;
-    if (select _status from _security Where no = idSecurebox) = true then
-        set _maker = PASSWORD(_codeSet);
-    else
-        set _maker = 'false';
-    end if;
-    return _maker;
+    declare _braker text;
 end;;
 
 create or replace definer=root@localhost event _Codebroken on schedule at CURRENT_TIMESTAMP on completion preserve enable 
