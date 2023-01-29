@@ -5,21 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyPokeApi</title>
+    <script src="./Api/Js/LoadApp.js"></script>
 </head>
 <body>
+    <!-- script __init__ -->
+    <script type="text/javascript">
+        let tg = (x, y) =>{
+        };
+        class LoadApp{
+            constructor(Login) {
+                this.LogInBool = Login
+                this.height = innerHeight
+                this.width = innerWidth
+                this.Storage = localStorage
+                this.tg = () =>{}
+                this.load()
+            }
+            load(){
+                new LoadPokeApi(this)
+            }
+        }
+        document.addEventListener('DOMContentLoaded', (ev)=>{
+            new LoadApp();
+        })
+    </script>
     <!-- log view -->
     <section class="LogView">
         <form action="" id="LogView">
             <label for="Register">Registrarse</label>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, mollitia ipsum? Iste, placeat officia architecto explicabo optio eaque suscipit expedita voluptates. Voluptate vitae cumque nostrum quasi dolorem libero soluta impedit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus esse quidem sapiente atque itaque, sed nihil veniam non quas officia voluptas architecto expedita perferendis, magnam libero. Earum obcaecati nihil quos?</p>
+            <button>Registrarse</button>
             <label for="LogIn">Iniciar sesión</label>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, corrupti, iure ratione inventore quod voluptatibus id voluptas est consequuntur similique eligendi doloribus? Veniam numquam libero, cumque dolores quisquam modi possimus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis impedit consequuntur nesciunt explicabo ut ab maxime earum obcaecati consectetur eos libero fugiat mollitia rerum architecto, ea minus laborum sint dolores.</p>
+            <button>LogIn</button>
             <label for="Recovery">Recuperar Cuenta</label>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus cupiditate similique eos cum facilis quas dignissimos. Deleniti natus quaerat aliquid quod voluptatem, magnam ut! Facilis possimus distinctio assumenda provident dolores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quis quae accusamus molestias velit suscipit ipsam mollitia quas culpa expedita necessitatibus, odit, nam incidunt excepturi aliquam! Expedita, praesentium? Qui, nemo?</p>
             <label for="Search">Buscar pokemon</label>
+            <button>Buscar Pokemon</button>
         </form>
     </section>
     <!-- Basick view -->
     <section class="BasicView">
         <form action="">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, repudiandae facilis voluptate corrupti sed nihil distinctio ipsam, aperiam iusto est maiores nulla harum a, suscipit id maxime aliquam beatae nesciunt? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus illo veritatis, eius officiis in hic consequatur distinctio atque molestiae! Alias cum, vero voluptatibus quibusdam culpa deserunt deleniti expedita dolorem veniam?</p>
             <label for="Search">Buscar Pokemon</label>
+            <button>Buscar Pokemon</button>
             <button>INICIAR</button>
             <button>CERRAR</button>
         </form>
@@ -27,13 +57,30 @@
     <!-- Popep view -->
     <section class="PopedView">
         <form action="">
-            
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur ad non quisquam quo, cumque dolore minus dolorum dolores hic, voluptatem eligendi praesentium saepe nemo sed sit explicabo pariatur excepturi ex?</p>
+            <button>aceptar</button>
+            <button>cancelar</button>
         </form>
     </section>
     <!-- Pokemon view -->
     <section class="PokemonView">
         <form action="">
             <label for="Search">Buscar Pokemon</label>
+            <p>IMG</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta eos totam veniam fuga quam voluptatum labore blanditiis officia quae eum a exercitationem, veritatis dolore, nesciunt suscipit facilis quas minus repellendus.</p>
+            <ol>
+                <li>el</li>
+                <li>el</li>
+                <li>el</li>
+                <li>el</li>
+                <li>el</li>
+                <li>el</li>
+                <li>el</li>
+                <li>el</li>
+            </ol>
+            <p>Descripcion
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius repellendus, ullam magni voluptatum id, voluptates numquam ratione rem, magnam illum architecto beatae maxime. Id et veritatis architecto ab delectus nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur exercitationem vitae, optio illo accusantium deserunt eaque non fugiat nostrum aliquid a ratione ipsam numquam autem. Quaerat eligendi voluptatibus totam enim.</p>
         </form>
     </section>
 </body>
