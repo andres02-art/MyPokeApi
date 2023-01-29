@@ -35,8 +35,17 @@ Se caracterizará por tener un desarrollo tipo espiral, de este modo el aplicati
 # Version 0.0-wa1
 Versionado alpha del aplicativo
 
+alphaXX.000.000.000
+representa el versionado alfa del BD.CODE.DESING
+
 # Version 0.0-wb1
 Versionado beta del aplicativo
 
+BetaXX.0000
+representa los casos de prueba y error
+
 # Verison 0.0.1
 Versionado delta del aplicativo
+
+1.0
+intica la version completa

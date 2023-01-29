@@ -1,0 +1,76 @@
+// Grupos de estilos de la hoja
+@mixin Init_Frames($swap) 
+    @if $swap == "LogView"
+        visibility: hidden
+        position: fixed
+        bottom: 30%
+        left: 200%
+        right: 20%
+        top: 30%
+    @else if $swap == "PokeView"
+        visibility: hidden
+        position: fixed
+        bottom: 200%
+        left: 30%
+        right: 30%
+        top: 30%
+    @else if $swap == "Login"
+        visibility: hidden
+        position: fixed
+        bottom: 30%
+        left: 30%
+        right: 200%
+        top: 30%
+    @else if $swap == "Popup"
+        visibility: hidden
+        position: fixed
+        bottom: 50%
+        top: 50%
+        left: 50%
+        right: 50%
+@mixin Lookat_page($swap)
+    @if $swap == "Maxize_Window"
+        grid-area: 1/1/1/1
+        width: 100%
+        height: 100%
+    @else if $swap == "LogView"
+        visibility: visible
+        position: fixed
+        bottom: 2%
+        left: 70%
+        right: 2%
+        top: 2%
+    @else if $swap == "PokeView"
+        visibility: visible
+        position: fixed
+        bottom: 10%
+        left: 3%
+        right: 3%
+        top: 3%
+    @else if $swap == "Popup"
+        visibility: visible
+        position: fixed
+        bottom: 30%
+        left: 30%
+        right: 30%
+        top: 30%
+    @else if $swap == "Login"
+        visibility: visible
+        position: fixed
+        bottom: 35%
+        top: 35%
+        left: 35%
+        right: 35%
+@mixin Delete_page 
+ margin: 0
+ padding: 0
+ border: 0px solid transparent
+ gap: 0
+ grid-template: 100% / 100%
+@mixin Content_center 
+ gap: $base * 2
+ text-align: center
+ padding: $base
+ justify-content: stretch
+ justify-content: center
+ align-items: center
