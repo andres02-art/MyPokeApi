@@ -67,7 +67,7 @@ begin
 end;;
 
 /*
-
+automatiza la generalizacion
 */
 
 create or replace definer=root@localhost trigger UsersPerson before insert on users
