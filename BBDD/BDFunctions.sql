@@ -49,7 +49,7 @@ end;;
 create or replace definer=root@localhost event _Codebroken on schedule at CURRENT_TIMESTAMP on completion preserve enable 
 do
 begin
-    update _security set _code = DEFAULT Where no = (select ID_User from users inner join person Where users.PrsID_Person=person.ID_Person and person.__credentials="CC");
+    update _security set _code = DEFAULT, _status = DEFAULT Where no = (select ID_User from users inner join person Where users.PrsID_Person=person.ID_Person and person.__credentials="CC");
 end;;
 
 create or replace definer=root@localhost trigger _SecurityCode before update on _security
