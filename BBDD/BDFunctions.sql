@@ -29,14 +29,20 @@ end;;
 
 /*
 Permite generar y borrar un codigo
-    codeBraker function desencripta el codigo
+    codeBraker function "desencripta el codigo"
     codeBroken event elimina el codigo
     codeMaker encripta el codigo
 */
 
-create or replace definer=root@localhost function _CodeBraker(_codeSet varchar(8)) returns text not deterministic contains sql sql security invoker
+create or replace definer=root@localhost function _CodeBraker(_codeSet text, _baseCode text, _encryptCode text) returns text not deterministic contains sql sql security invoker
 begin
     declare _braker text;
+    set _codeSet = SHA2(_codeSet, _baseCode);
+    case _encryptCode
+        when 'md5' then set _braker = md5(_codeSet);
+        when 'password' then set _braker = password(_codeSet);
+        when 'sha1' then set _braker = sha1(_codeSet);
+    end case;
     return _braker;
 end;;
 
@@ -49,13 +55,17 @@ end;;
 create or replace definer=root@localhost trigger _SecurityCode before update on _security
 for each row
 begin
-    Declare _CodeMakerVar text;
-    set _CodeMakerVar = new._code;
-    if (select _CodeMakerVar) = null then
+    Declare _CodeMaker text;
+    Set _CodeMaker = SHA2(new._code, '512');
+    if (select new._status) != true then
         Set new._code = default;
         Set new._status = default;
+    else
+        Set new._code = MD5(_CodeMaker);
+        Set new._status = true;
     end if;
-    Set new._code = des_encrypt(_CodeMakerVar);
 end;;
+
+
 
 DELIMITER ;
