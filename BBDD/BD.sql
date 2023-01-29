@@ -78,7 +78,7 @@ create or replace table reports_x_user(
 
 create or replace table _security(
     no varchar(30) unique not null, 
-    _code varchar(8) unique null, 
+    _code text unique null, 
     _status boolean not null default false, 
     _date date not null default CURRENT_DATE, 
     primary key(no),

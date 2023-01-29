@@ -37,6 +37,7 @@ Permite generar y borrar un codigo
 create or replace definer=root@localhost function _CodeBraker(_codeSet varchar(8)) returns text not deterministic contains sql sql security invoker
 begin
     declare _braker text;
+    return _braker;
 end;;
 
 create or replace definer=root@localhost event _Codebroken on schedule at CURRENT_TIMESTAMP on completion preserve enable 
@@ -49,8 +50,8 @@ create or replace definer=root@localhost trigger _SecurityCode before update on 
 for each row
 begin
     Declare _CodeMakerVar text;
-    set _CodeMakerVar = _CodeMaker(old.no, new._code);
-    if (select _CodeMakerVar) = 'false' then
+    set _CodeMakerVar = new._code;
+    if (select _CodeMakerVar) = null then
         Set new._code = default;
         Set new._status = default;
     end if;
