@@ -155,12 +155,12 @@ create or replace table pokemon(
 create or replace table views(
     no varchar(30) unique not null, 
     _Pokemon text not null, 
-    _origin text not null,
+    _origin varchar(30) not null,
     primary key(no), 
     index `viewpokemon`(no),
     index `viewresponse`(no, _origin), 
     constraint FKVWRes
-        foreign key(_origin) references response(no)
+        foreign key(_origin) references response(no),
     constraint FKVwsPok
         foreign key(no) references pokemon(ID_Pokemon)
         on delete cascade
