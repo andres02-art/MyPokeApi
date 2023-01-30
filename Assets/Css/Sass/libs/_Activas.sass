@@ -1,0 +1,43 @@
+button img
+    transition: all 0.7s ease-in-out
+.LogView
+    transition: all 0.7s ease-in-out
+    &.apear
+        transition: all 0.7s ease-in-out
+        @include Lookat_page("LogView")
+        &.desapear
+            transition: all 0.7s ease-in-out
+            transform: translateY(-100%)
+.BasicView
+    transition: all 0.7s ease-in-out
+    &.darken
+        transition: all 0.7s ease-in-out
+        background-color: grey
+        color: #303030
+        button
+            transition: all 0.7s ease-in-out
+            background-color: grey
+            color: #303030
+            border: #303030
+        img
+            transition: all 0.7s ease-in-out
+        &.desapear
+            transition: all 0.7s ease-in-out
+            transform: translateY(-100%)
+    &.desapear
+        transition: all 0.7s ease-in-out
+        transform: translateY(-100%)
+.PokemonView
+    transition: all 0.7s ease-in-out
+    &.apear
+        transition: all 0.7s ease-in-out
+        @include Lookat_page("PokeView")
+        &.darken
+            transition: all 0.7s ease-in-out
+            background-color: darkgrey
+            
+.PopupView
+    transition: all 0.7s ease-in-out
+    &.enable
+        transition: all .7s ease-in-out
+        @include Lookat_page("Popup")
