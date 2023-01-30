@@ -1,6 +1,6 @@
 class animatedObjs {
   // esta clase establece en un objeto como la relacion entre dos etiquetas html mediante su atributo class
-  // principalmente usada para la animacion entre ellas
+  // principalmente usada para la animation entre ellas
  constructor(led, background, animate1, animate2, delay) {
   // DEFINE LOS PARAMETROS INICIALES
   if (background===true) {
@@ -8,7 +8,7 @@ class animatedObjs {
   } else {
     this.nameAnimate = led + background
     this.DefaultAnimate = null
-    this.animacion = [animate1, animate2];
+    this.animation = [animate1, animate2];
     this.pantalla = document.querySelector(`.${led}`);
     this.OldLed = led
     this.fondo = document.querySelector(`.${background}`);
@@ -18,13 +18,13 @@ class animatedObjs {
     this.nextAnimate = null
     this.invertAnimate = []
     this.modeAnimate = []
-    this.animacion.forEach((e, i)=>{
+    this.animation.forEach((e, i)=>{
       this.invertAnimate[i]=this.invert_ainmation(e)
     })
   }
  }
- invert_ainmation(animacion){
-  switch (animacion) {
+ invert_ainmation(animation){
+  switch (animation) {
     case `natural`:
       return `null`;
     case `apear`:
@@ -59,49 +59,49 @@ class animatedObjs {
    console.log(`no hay cuenta`);
   }
  }
- start_animate(animacion, destinate) {
+ start_animate(animation, destinate) {
   if (this.pantalla.hasAttribute(`style`)) {
     let backup = this.pantalla.getAttribute(`style`)
     this.pantalla.setAttribute(`class`,
-    `${animacion} ${destinate}`)
+    `${animation} ${destinate}`)
     this.pantalla.setAttribute(`style`,
     backup)
   } else {
     this.pantalla.setAttribute(`class`,
-   `${animacion} ${destinate}`)
+   `${animation} ${destinate}`)
  }}
- end_animate(animacion, origin) {
+ end_animate(animation, origin) {
    if (this.fondo.hasAttribute(`style`)) {
     let backup = this.fondo.getAttribute(`style`)
     this.fondo.setAttribute(`class`,
-     `${animacion} ${origin}`)
+     `${animation} ${origin}`)
      this.fondo.setAttribute(`style`, 
      backup)
   }else{ 
      this.fondo.setAttribute(`class`, 
-     `${animacion} ${origin}`);
+     `${animation} ${origin}`);
    }
  }
  play_animate(){
-   this.start_animate(this.animacion[0], this.OldLed)
+   this.start_animate(this.animation[0], this.OldLed)
    this.delay_animation(this.retraso)
    if (animacionDef !== null) {
-     this.end_animate(this.animacion[1], this.OldBG)
+     this.end_animate(this.animation[1], this.OldBG)
     }
   }
   swap_animate(){
-    if (this.animacion[1] !== null) {
-      this.start_animate(this.animacion[1], this.OldLed)
+    if (this.animation[1] !== null) {
+      this.start_animate(this.animation[1], this.OldLed)
     }
     this.delay_animation(this.retraso)
-    this.end_animate(this.animacion[0], this.OldBG)
+    this.end_animate(this.animation[0], this.OldBG)
   }
   goBack_animate(delay){
-    if ((this.animacion[1] !== null )) {
-      this.end_animate(this.animacion[1], this.OldBG)
+    if ((this.animation[1] !== null )) {
+      this.end_animate(this.animation[1], this.OldBG)
     }
     setTimeout(() => {
-      this.start_animate(this.animacion[0], this.OldLed)  
+      this.start_animate(this.animation[0], this.OldLed)  
     }, delay);
   }
   Repeat_animate(x, mode='play'){
@@ -154,12 +154,12 @@ class animatedObjs {
       this.nextAnimate.play_animate()
     }
   }
-  NaturalStage_animate(action=false, view='none', animate=this.animacion){
+  NaturalStage_animate(action=false, view='none', animate=this.animation){
     /* expresa que si no se define ninguna de las variables requeridas
     el programa por defecto ambos objetos irán al estado natural 
     
     de lo contrario si se define la primera, el valor en view
-    activara una animacion como desencadenamiento*/
+    activara una animation como desencadenamiento*/
     if (view === 'led') {
       this.start_animate(this.NaturalStage, this.OldLed)
     }
@@ -181,7 +181,7 @@ class animatedObjs {
   }
   retrive_animates(mode='none', num=1){
     for (let i = 0; i < this.PreviusAnimates.length; i++) {
-      let Current_animate = new animatedObjs(this.PreviusAnimates[i].OldLed, this.PreviusAnimates[i].OldBG, this.PreviusAnimates[i].animacion[0], this.PreviusAnimates[i].animacion[1], this.PreviusAnimates[i].retraso)
+      let Current_animate = new animatedObjs(this.PreviusAnimates[i].OldLed, this.PreviusAnimates[i].OldBG, this.PreviusAnimates[i].animation[0], this.PreviusAnimates[i].animation[1], this.PreviusAnimates[i].retraso)
       switch (mode) {
         case 'invertReverse':
           Current_animate.invertGoBack_animate()
