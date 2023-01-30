@@ -167,7 +167,7 @@ button:hover, .button:hover {
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
 }
-.LogView .LogViewForm .LogViewRecovery {
+.LogView .LogViewForm .LogViewIn {
   grid-area: 1/2/3/2;
   background-color: white;
   border: 0px solid transparent;
@@ -175,7 +175,7 @@ button:hover, .button:hover {
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
 }
-.LogView .LogViewForm .LogViewIn {
+.LogView .LogViewForm .LogViewRecovery {
   grid-area: 3/2/5/2;
   background-color: white;
   border: 0px solid transparent;
