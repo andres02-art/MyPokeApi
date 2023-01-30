@@ -49,15 +49,17 @@ class animatedObjs {
   }
 
  }
- delay_animation(x) {
+ Enddelay_animation(x, y) {
   //  si tiene unretrazo se realiza
-  if (x) {
    setTimeout(() => {
-    console.log(`${x} contados`);
-   }, x);
-  } else {
-   console.log(`no hay cuenta`);
-  }
+    this.end_animate(x, y)
+   }, this.delay);
+ }
+ Stardelay_animation(x, y) {
+  //  si tiene unretrazo se realiza
+   setTimeout(() => {
+    this.start_animate(x,y)
+   }, this.delay);
  }
  start_animate(animation, destinate) {
   if (this.pantalla.hasAttribute(`style`)) {
@@ -84,25 +86,24 @@ class animatedObjs {
  }
  play_animate(){
    this.start_animate(this.animation[0], this.OldLed)
-   this.delay_animation(this.retraso)
-   if (animacionDef !== null) {
-     this.end_animate(this.animation[1], this.OldBG)
+   if (this.animation[1] !== null) {
+     this.Enddelay_animation(this.animation[1], this.OldBG)
     }
   }
   swap_animate(){
     if (this.animation[1] !== null) {
       this.start_animate(this.animation[1], this.OldLed)
     }
-    this.delay_animation(this.retraso)
-    this.end_animate(this.animation[0], this.OldBG)
+    this.Enddelay_animation(this.animation[0], this.OldBG)
   }
   goBack_animate(delay){
     if ((this.animation[1] !== null )) {
       this.end_animate(this.animation[1], this.OldBG)
     }
-    setTimeout(() => {
-      this.start_animate(this.animation[0], this.OldLed)  
-    }, delay);
+    let oldDelay = this.delay
+    this.delay = delay
+    this.Stardelay_animation(this.animation[0], this.OldLed)
+    this.delay = oldDelay
   }
   Repeat_animate(x, mode='play'){
     for (let i = 1; i <= x; i++) {
@@ -117,25 +118,24 @@ class animatedObjs {
   }
   invertPlay_animate(){
     this.start_animate(this.invertAnimate[0], this.OldLed)
-    this.delay_animation(this.retraso)
     if(this.invertAnimate[1] !== null){
-      this.end_animate(this.invertAnimate[1], this.OldBG)
+      this.Enddelay_animation(this.invertAnimate[1], this.OldBG)
     }
   }
   invertswap_animate(){
     if (this.invertAnimate[1] !== null) {
       this.start_animate(this.invertAnimate[1], this.OldLed)
     }
-    this.delay_animation(this.retraso)
-    this.end_animate(this.invertAnimate[0], this.OldBG)
+    this.Enddelay_animation(this.invertAnimate[1], this.OldBG)
   }
   invertGoBack_animate(delay){
     if ((this.invertAnimate[1] !== null )) {
       this.end_animate(this.invertAnimate[1], this.OldBG)
     }
-    setTimeout(() => {
-      this.start_animate(this.invertAnimate[0], this.OldLed)  
-    }, delay);
+    let oldDelay = this.delay
+    this.delay = delay
+    this.Stardelay_animation(this.invertAnimate[0], this.OldLed)
+    this.delay = oldDelay
   }
   invertRepeat_animate(x, mode='invertPlay'){
         for (let i = 1; i <= x; i++) {

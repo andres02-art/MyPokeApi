@@ -16,7 +16,7 @@ El Back-end del aplicativo será desarrollado en php y sql sentences, es decir q
 
 • XAMPP: https://www.apachefriends.org/es/index.html
 
-El Front-end del aplicativo será realizado con html, js y sass que permitiran tener un desarrollo completo de los MockUps realizados con ayuda de el aplicativo Figma de uso libre de donde se exportarán todos los diseños, img y svgs que usará la plataforma html creada. Los Mockups fueron creados despues de un diagrama general echo en StarUml
+El Front-end del aplicativo será realizado con html, js y sass que permitiran tener un desarrollo completo de los MockUps realizados con ayuda de el aplicativo Figma de uso libre de donde se exportarán todos los diseños, img y svgs que usará la plataforma html creada. Los Mockups fueron creados despues de un diagrama generalecho en StarUml
 
 • Figma: https://www.figma.com
 

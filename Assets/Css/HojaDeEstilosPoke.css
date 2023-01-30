@@ -27,7 +27,7 @@ button img {
   background-color: grey;
   color: #303030;
 }
-.BasicView.darken button {
+.BasicView.darken input {
   transition: all 0.7s ease-in-out;
   background-color: grey;
   color: #303030;

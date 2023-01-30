@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyPokeApi</title>
     <script src="./Api/Js/LoadApp.js"></script>
+    <script src="./Api/Js/Mypokeaip_animations.js"></script>
     <link rel="stylesheet" href="./Assets/Css/HojaDeEstilosPoke.css">
-    <link rel="shortcut icon" href="./Assets/Img/icons/LogoDePokemon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./Assets/Img/icons/MyPokeIcon.png" type="image/x-icon">
 </head>
 <body>
     <!-- script __init__ -->
     <script type="text/javascript">
         let tg = (x, y) =>{
+            return x.target.matches(y)
         };
         class LoadApp{
             constructor(Login) {
@@ -21,7 +23,6 @@
                 this.width = innerWidth
                 this.Storage = localStorage
                 this.DomineApi = "https://pokeapi.co/api/v2/pokemon/"
-                this.tg = () =>{}
                 this.load()
             }
             load(){
@@ -39,12 +40,12 @@
                 <div class="LogViewRegister">
                     <label for="Register">Registrarse</label>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, mollitia ipsum? Iste, placeat officia architecto explicabo optio eaque suscipit expedita voluptates. Voluptate vitae cumque nostrum quasi dolorem libero soluta impedit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus esse quidem sapiente atque itaque, sed nihil veniam non quas officia voluptas architecto expedita perferendis, magnam libero. Earum obcaecati nihil quos?</p>
-                    <button>Registrarse</button>
+                    <input value="Registrarse" type="button" name="Registrarse" /> 
                 </div>
                 <div class="LogViewIn">
                     <label for="LogIn">Iniciar sesión</label>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, corrupti, iure ratione inventore quod voluptatibus id voluptas est consequuntur similique eligendi doloribus? Veniam numquam libero, cumque dolores quisquam modi possimus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis impedit consequuntur nesciunt explicabo ut ab maxime earum obcaecati consectetur eos libero fugiat mollitia rerum architecto, ea minus laborum sint dolores.</p>
-                    <button>LogIn</button>
+                    <input value="Iniciar Sesion" type="button" name="LogIn" /> 
                 </div>
                 <div class="LogViewRecovery">
                     <label for="Recovery">Recuperar Cuenta</label>
@@ -54,7 +55,8 @@
                 <div class="LogViewSearch">
                     <label for="Search">Buscar Pokemon</label>
                     <input type="search" id="PokeSeart" name="__pokemon">
-                    <button>Buscar Pokemon</button>
+                    <input value="Buscar" type="button" myled="LogView" name=""id="SearchPokemon"/> 
+                    <input type="button" value="Cerrar" id="CBBasicView" myled = "LogView">
                 </div>
             </div>
         </form>
@@ -64,18 +66,18 @@
         <form action="" class="BasicViewForm">
             <div class="BasicViewBody">
                 <img src="" alt="" sizes="" srcset="">
-                <img src="./Assets/Img/pngs/MyPokeApi.png" width="90%" height="100%" alt="imagen echa con figma">
+                <img id="background" src="./Assets/Img/pngs/MyPokeApi.png" width="90%" height="100%" alt="imagen echa con figma">
             </div>
             <div class="BasicViewBrowser">
                 <div>
-                    <button>CERRAR</button>
-                    <button>REESTART</button>
+                    <input value="cerrar" type="button" name="" /> 
+                    <input value="Reiniciar" type="button" name=""id="FetchPokemons"/> 
                 </div>
                 <div>
                     <label for="Search">Buscar Pokemon</label>
                     <input type="search" id="PokeSeart" name="__pokemon">
-                    <button>Buscar Pokemon</button>
-                    <button>INICIAR</button>
+                    <input value="Buscar Pokemon" type="button" name="" myled="BasicView" id="SearchPokemon"/> 
+                    <input value="Iniciar sesion" type="button" name=""id="LogInUser" /> 
                 </div>
             </div>
         </form>
@@ -92,16 +94,16 @@
     <section class="PopupView">
         <form action="">
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur ad non quisquam quo, cumque dolore minus dolorum dolores hic, voluptatem eligendi praesentium saepe nemo sed sit explicabo pariatur excepturi ex?</p>
-            <button>aceptar</button>
-            <button>cancelar</button>
+            <input value="aceptar" type="button" name="" /> 
+            <input value="cancelar" type="button" name=""/> 
         </form>
     </section>
     <!-- Pokemon view -->
     <section class="PokemonView">
         <div class="PokemonContentView">
             <div class="PokemonHeader">
-                <button>Reset</button> 
-                <button>Cerrar</button>
+                <input value="Reiniciar" type="button" name=""id="FetchPokemons" />  
+                <input value="Cerrar" type="button" name="" myled="PokemonView" id="CBBasicView"/> 
             </div>
             <div class="PokemonBody ListReg">
                     <div class="PokemonAbilities">
@@ -121,8 +123,8 @@
             <div class="PokemonFooter">
                 <form action="">
                     <label for="Search">Buscar Pokemon</label>
-                    <input type="search" id="PokeSeart" name="__pokemon">
-                    <button>Buscar Pokemon</button>
+                    <input value="" type="search" id="PokeSeart" name="__pokemon">
+                    <input value="" type="button" name="" id="SearchPokemon">Buscar Pokemon /> 
                 </form>
             </div>
             <div class="PokemonName">
