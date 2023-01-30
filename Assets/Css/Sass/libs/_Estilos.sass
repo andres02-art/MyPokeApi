@@ -63,18 +63,22 @@ button, .button
         .LogViewRegister
             grid-area: 1/3/5/3
             @include Dark_Box()
+            padding: $base*2
                 
         .LogViewIn
             grid-area: 1/2/3/2
             @include Dark_Box()
+            padding: $base*2
                 
         .LogViewRecovery
             grid-area: 3/2/5/2
             @include Dark_Box()
+            padding: $base*2
                 
         .LogViewSearch
             grid-area: 4/1/4/1
             @include Dark_Box()
+            padding: $base*2
                 
 .PokemonView
     @include Init_Frames("PokeView")
@@ -154,6 +158,9 @@ button, .button
         height: $base * 3
     .ContentCenter
         flex: 1 1 90%
+        height: $base * 3
+    .ContentMid
+        flex: 1 1 45%
         height: $base * 3
 .ListRegRev
     p

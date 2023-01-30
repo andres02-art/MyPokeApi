@@ -166,6 +166,7 @@ button:hover, .button:hover {
   border-radius: 10px 10px;
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
+  padding: 20px;
 }
 .LogView .LogViewForm .LogViewIn {
   grid-area: 1/2/3/2;
@@ -174,6 +175,7 @@ button:hover, .button:hover {
   border-radius: 10px 10px;
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
+  padding: 20px;
 }
 .LogView .LogViewForm .LogViewRecovery {
   grid-area: 3/2/5/2;
@@ -182,6 +184,7 @@ button:hover, .button:hover {
   border-radius: 10px 10px;
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
+  padding: 20px;
 }
 .LogView .LogViewForm .LogViewSearch {
   grid-area: 4/1/4/1;
@@ -190,6 +193,7 @@ button:hover, .button:hover {
   border-radius: 10px 10px;
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
+  padding: 20px;
 }
 
 .PokemonView {
@@ -307,6 +311,10 @@ button:hover, .button:hover {
 }
 .ListRegFlow .ContentCenter {
   flex: 1 1 90%;
+  height: 30px;
+}
+.ListRegFlow .ContentMid {
+  flex: 1 1 45%;
   height: 30px;
 }
 

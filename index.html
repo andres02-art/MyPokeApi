@@ -65,10 +65,10 @@
                 <div class="LogViewIn ListRegFlow">
                     <label for="LogIn" class="ContentCenter">Iniciar sesión</label>
                     <p class="ContentCenter">Nick o Correo:</p>
-                    <input class="ContentCenter" type="text" name="_LogDate" id="LogDate">
+                    <input class="ContentCenter" placeholder="Correo" type="text" name="_LogDate" id="LogDate">
                     <hr class="ContentCenter">
                     <p class="ContentLeft">Contraseña:</p>
-                    <input type="password" name="_password" id="Password" class="ContentRigth">
+                    <input type="password" placeholder="Contraseña" name="_password" id="Password" class="ContentRigth">
                     <hr class="ContentCenter">
                     <input class="ContentCenter"value="Iniciar Sesion" type="button" id="LogInUser" name="LogIn" /> 
                 </div>
@@ -76,14 +76,14 @@
                     <label class="ContentCenter" for="Recovery">Recuperar Cuenta</label>
                     <hr class="ContentCenter">
                     <p class="ContentCenter">Correo:</p>
-                    <input type="email" name="__address" id="Address" class="ContentCenter">
+                    <input type="email" name="__address" id="Address" placeholder="Correo" class="ContentCenter">
                     <input class="ContentCenter" value="Recuperar Cuenta" type="button" id="RecoveryUser">
                 </div>
-                <div class="LogViewSearch">
-                    <label for="Search">Buscar Pokemon</label>
-                    <input type="search" id="PokeSeart" name="__pokemon">
-                    <input value="Buscar" type="button" myled="LogView" name=""id="SearchPokemon"/> 
-                    <input type="button" value="Cerrar" id="CBBasicView" myled = "LogView">
+                <div class="LogViewSearch ListRegFlow">
+                    <label class="ContentLeft" for="Search">Buscar</label>
+                    <input class="ContentRigth" type="search" placeholder="Buscar Pokemon" id="PokeSeart" name="__pokemon">
+                    <input class="ContentMid" value="Buscar" type="button" myled="LogView" name=""id="SearchPokemon"/> 
+                    <input class="ContentMid" type="button" value="Cerrar" id="CBBasicView" myled = "LogView">
                 </div>
             </div>
         </form>
@@ -92,7 +92,6 @@
     <section class="BasicView">
         <form action="" class="BasicViewForm">
             <div class="BasicViewBody">
-                <img src="" alt="" sizes="" srcset="">
                 <img id="background" src="./Assets/Img/pngs/MyPokeApi.png" width="90%" height="100%" alt="imagen echa con figma">
             </div>
             <div class="BasicViewBrowser">
