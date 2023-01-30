@@ -10,24 +10,17 @@
     @else if $swap == "PokeView"
         visibility: hidden
         position: fixed
-        bottom: 5%
-        left: 5%
-        right: 5%
+        bottom: 0%
+        left: 0%
+        right: 0%
         top: 200%
-    @else if $swap == "Login"
-        visibility: hidden
-        position: fixed
-        bottom: 30%
-        left: 30%
-        right: 200%
-        top: 30%
     @else if $swap == "Popup"
         visibility: hidden
         position: fixed
-        bottom: 50%
-        top: 50%
-        left: 50%
-        right: 50%
+        top: 5%
+        left: 5%
+        right: 70%
+        bottom: 290%
     @else if $swap == "BasicView"
         visibility: hidden
         position: fixed
@@ -35,6 +28,7 @@
         top: 0%
         left: 0%
         right: 0%
+
 @mixin Lookat_page($swap)
     @if $swap == "Maxize_Window"
         grid-area: 1/1/1/1
@@ -60,16 +54,18 @@
     @else if $swap == "Popup"
         visibility: visible
         position: fixed
-        bottom: 30%
-        left: 30%
-        right: 30%
-        top: 30%
+        top: 5%
+        left: 5%
+        right: 70%
+        bottom: 90%
+
 @mixin Delete_page 
  margin: 0
  padding: 0
  border: 0px solid transparent
  gap: 0
  grid-template: 100% / 100%
+
 @mixin Content_center 
  gap: $base * 2
  text-align: center
@@ -77,6 +73,7 @@
  justify-content: stretch
  justify-content: center
  align-items: center
+
 @mixin Dark_Box()
     background-color: white
     border: 0px solid transparent

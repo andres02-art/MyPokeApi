@@ -79,31 +79,25 @@ button, .button
 .PokemonView
     @include Init_Frames("PokeView")
     display: grid
-    grid-template: 15% 45% 15% / repeat(6, 1fr)
-    grid-column-gap: $base*4
-    .
-    .PokemonHeader
-        grid-area: 1/5/1/6
-        background-color: white
-        border-radius: $base/2
-        box-shadow: $base/3 $base $base*2 rgba($color: #363535, $alpha: 1 )
-        margin: $base $base*2 $base*3 $base*2
+    grid-template: 100% / 100%
+    padding: $base $base $base $base
+    margin: $base $base $base $base
+    .PokemonContentView
+        @include Lookat_page("Maxize")
         display: grid
-    .Pokemonbody
-        grid-area: 2/5/2/6
-        background-color: white
-        border-radius: $base/2
-        box-shadow: $base/3 $base $base*2 rgba($color: #363535, $alpha: 1 )
-        margin: $base $base*2 $base $base*2
-        display: grid
-    .PokemonFooter
-        grid-area: 3/5/3/6
-        background-color: white
-        border-radius: $base/2
-        box-shadow: $base/3 $base $base*2 rgba($color: #363535, $alpha: 1 )
-        margin: $base/2 $base*2 $base*4 $base*2
-        display: grid
-        grid-template: repeat(12, 1fr) / repeat(12, 1fr)
+        grid-template: 15% 45% 15% / repeat(6, 1fr)
+        grid-column-gap: $base*4
+        grid-area: 1/1/1/1
+        .PokemonName
+            grid-area: 1/1/1/5
+        .PokemonIMG
+            grid-area: 2/1/4/5
+        .PokemonHeader
+            grid-area: 1/5/1/7
+        .PokemonBody
+            grid-area: 2/5/3/7
+        .PokemonFooter
+            grid-area: 3/5/4/7
 
 .PopupView
     @include Init_Frames("Popup")

@@ -45,174 +45,30 @@ button img {
   transform: translateY(-100%);
 }
 
-.BBDD {
+.PokemonView {
   transition: all 0.7s ease-in-out;
 }
-.BBDD.apear {
+.PokemonView.apear {
   transition: all 0.7s ease-in-out;
-}
-.BBDD.apear.darken {
-  transition: all 0.7s ease-in-out;
-  background-color: darkgrey;
+  visibility: visible;
+  position: fixed;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  top: 0%;
 }
 
-.LoginUsers {
+.PopupView {
   transition: all 0.7s ease-in-out;
 }
-.LoginUsers .LoginUserForm {
+.PopupView.enable {
   transition: all 0.7s ease-in-out;
-}
-.LoginUsers .LoginUserForm.apear {
   visibility: visible;
   position: fixed;
-  bottom: 35%;
-  top: 35%;
-  left: 35%;
-  right: 35%;
-}
-.LoginUsers .LoginUserForm.desapear {
-  visibility: hidden;
-  position: fixed;
-  bottom: 30%;
-  left: 30%;
-  right: 200%;
-  top: 30%;
-}
-.LoginUsers .RegisterUserForm {
-  transition: all 0.7s ease-in-out;
-}
-.LoginUsers .RegisterUserForm.apear {
-  visibility: visible;
-  position: fixed;
-  bottom: 35%;
-  top: 35%;
-  left: 35%;
-  right: 35%;
-}
-.LoginUsers .RegisterUserForm.desapear {
-  visibility: hidden;
-  position: fixed;
-  bottom: 30%;
-  left: 30%;
-  right: 200%;
-  top: 30%;
-}
-.LoginUsers .RecoverUserForm {
-  transition: all 0.7s ease-in-out;
-}
-.LoginUsers .RecoverUserForm.apear {
-  visibility: visible;
-  position: fixed;
-  bottom: 35%;
-  top: 35%;
-  left: 35%;
-  right: 35%;
-}
-.LoginUsers .RecoverUserForm.desapear {
-  visibility: hidden;
-  position: fixed;
-  bottom: 30%;
-  left: 30%;
-  right: 200%;
-  top: 30%;
-}
-
-.Alert {
-  transition: all 0.7s ease-in-out;
-}
-.Alert.apear {
-  transition: all 0.7s ease-in-out;
-}
-.Alert.enable {
-  transition: all 0.7s ease-in-out;
-}
-
-.RegsHeaders {
-  transition: all 0.3s ease-in-out;
-}
-.RegsHeaders h1 {
-  transition: all 0.3s ease-in-out;
-}
-.RegsHeaders h1:hover {
-  transition: all 0.3s ease-in-out;
-  background-color: black;
-  color: white;
-  border-color: black;
-}
-.RegsHeaders h1:active {
-  transition: all 0.2s ease-out;
-  background-color: white;
-  color: white;
-}
-.RegsHeaders h1.enable {
-  transition: all 0.4 ease-out;
-  background-color: black;
-  color: white;
-  border-color: white;
-}
-
-.RegsBody {
-  transition: all 0.7s ease-in-out;
-}
-.RegsBody .RegbUsers {
-  height: 0%;
-  transition: all 0.3s ease-in-out;
-  visibility: hidden;
-}
-.RegsBody .RegbUsers.enable {
-  transition: all 0.3s ease-in-out;
-  height: 90%;
-  visibility: visible;
-}
-.RegsBody .RegbUsers .SelectClis {
-  transition: all 0.4s ease-out;
-  color: black;
-}
-.RegsBody .RegbUsers .SelectClis.enable {
-  color: lightblue;
-}
-.RegsBody .RegbUsers .SelectClis:hover {
-  color: lightblue;
-}
-.RegsBody .RegbUsers .SelectPros {
-  transition: all 0.4s ease-out;
-  color: black;
-}
-.RegsBody .RegbUsers .SelectPros.enable {
-  color: lightblue;
-}
-.RegsBody .RegbUsers .SelectPros:hover {
-  color: lightblue;
-}
-.RegsBody .RegbProducts {
-  height: 0%;
-  visibility: hidden;
-  transition: all 0.3s ease-in-out;
-}
-.RegsBody .RegbProducts.enable {
-  transition: all 0.3s ease-in-out;
-  height: 90%;
-  visibility: visible;
-}
-.RegsBody .RegbUsers1 {
-  height: 0%;
-  visibility: hidden;
-  transition: all 0.3s ease-in-out;
-}
-.RegsBody .RegbUsers1.enable {
-  transition: all 0.3s ease-in-out;
-  height: 90%;
-  visibility: visible;
-}
-.RegsBody .RegbUsers2 {
-  height: 0%;
-  visibility: hidden;
-  transition: all 0.3s ease-in-out;
-}
-.RegsBody .RegbUsers2.enable {
-  transition: all 0.3s ease-in-out;
-  height: 90%;
-  visibility: visible;
+  top: 5%;
+  left: 5%;
+  right: 70%;
+  bottom: 90%;
 }
 
 * {
@@ -335,238 +191,50 @@ button:hover, .button:hover {
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
 }
-.LogView .RegisterUserForm {
-  grid-area: 2/4/2/10;
-  display: grid;
-  grid-template: 15% 65% 20%/100%;
-  visibility: hidden;
-  position: fixed;
-  bottom: 30%;
-  left: 30%;
-  right: 200%;
-  top: 30%;
-}
-.LogView .RegisterUserForm .LogHeader {
-  grid-area: 1/1/1/1;
-}
-.LogView .RegisterUserForm .LogBody {
-  grid-area: 2/1/2/1;
-}
-.LogView .RegisterUserForm .LogFooter {
-  grid-area: 3/1/3/1;
-}
-.LogView .RecoverUserForm {
-  grid-area: 2/4/2/10;
-  display: grid;
-  grid-template: 15% 65% 20%/100%;
-  visibility: hidden;
-  position: fixed;
-  bottom: 30%;
-  left: 30%;
-  right: 200%;
-  top: 30%;
-}
-.LogView .RecoverUserForm .LogHeader {
-  grid-area: 1/1/1/1;
-}
-.LogView .RecoverUserForm .LogBody {
-  grid-area: 2/1/2/1;
-}
-.LogView .RecoverUserForm .LogFooter {
-  grid-area: 3/1/3/1;
-}
 
 .PokemonView {
   visibility: hidden;
   position: fixed;
-  bottom: 5%;
-  left: 5%;
-  right: 5%;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
   top: 200%;
+  display: grid;
+  grid-template: 100%/100%;
+  padding: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
+}
+.PokemonView .PokemonContentView {
+  width: 100%;
+  height: 100%;
   display: grid;
   grid-template: 15% 45% 15%/repeat(6, 1fr);
   grid-column-gap: 40px;
-}
-.PokemonView .PokemonHeader {
-  grid-area: 1/5/1/6;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 3.3333333333px 10px 20px #363535;
-  margin: 10px 20px 30px 20px;
-  display: grid;
-}
-.PokemonView .Pokemonbody {
-  grid-area: 2/5/2/6;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 3.3333333333px 10px 20px #363535;
-  margin: 10px 20px 10px 20px;
-  display: grid;
-}
-.PokemonView .PokemonFooter {
-  grid-area: 3/5/3/6;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 3.3333333333px 10px 20px #363535;
-  margin: 5px 20px 40px 20px;
-  display: grid;
-  grid-template: repeat(12, 1fr)/repeat(12, 1fr);
-}
-
-.Registros {
-  margin: 0;
-  padding: 0;
-  border: 0px solid transparent;
-  gap: 0;
-  grid-template: 100%/100%;
-  display: grid;
-  grid-template: 5% 95%/100%;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
-  grid-row-end: 10px;
-  background-color: rgba(0, 0, 0, 0);
-}
-.Registros .RegsHeaders {
-  grid-area: 1/1/1/1;
-  display: flex;
-  flex-flow: wrap column;
-  border-radius: 5px;
-  box-shadow: 3.3333333333px 10px 20px #363535;
-  margin-left: 20px;
-  gap: 20px;
-  text-align: center;
-  padding: 10px;
-  justify-content: stretch;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  margin-right: 20px;
-}
-.Registros .RegsHeaders h1 {
-  gap: 20px;
-  text-align: center;
-  padding: 10px;
-  justify-content: stretch;
-  justify-content: center;
-  align-items: center;
-  margin: 0px;
-  border-radius: 10px;
-}
-.Registros .RegsBody {
-  grid-area: 2/1/3/1;
-  display: grid;
-  grid-template: 60% 30% 10%/100%;
-  grid-column-gap: 20px;
-}
-.Registros .RegsBody .RegbUsers {
-  gap: 20px;
-  text-align: center;
-  padding: 10px;
-  justify-content: stretch;
-  justify-content: center;
-  align-items: center;
-  grid-area: 1/1/2/1;
-  border-radius: 5px;
-  box-shadow: 3.3333333333px 10px 20px #363535;
-  background-color: white;
-  margin: 40px 20px 10px 20px;
-}
-.Registros .RegsBody .RegbUsers:hover {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-}
-.Registros .RegsBody .RegbUsers .HeaderCli {
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-  gap: 20px;
-  text-align: center;
-  padding: 10px;
-  justify-content: stretch;
-  justify-content: center;
-  align-items: center;
-}
-.Registros .RegsBody .RegbUsers1 {
-  grid-area: 2/1/3/1;
-  margin: 10px 20px 30px 20px;
-  border-radius: 5px;
-  box-shadow: 3.3333333333px 10px 20px #363535;
-  background-color: white;
-}
-.Registros .RegsBody .RegbUsers2 {
-  grid-area: 2/1/3/1;
-  margin: 10px 20px 30px 20px;
-  border-radius: 5px;
-  box-shadow: 3.3333333333px 10px 20px #363535;
-  background-color: white;
-}
-.Registros .RegsBody .RegbFooter {
-  grid-area: 3/1/4/1;
-  margin: 10px 20px 40px 20px;
-  border-radius: 5px;
-  display: flex;
-  box-shadow: 3.3333333333px 10px 20px #363535;
-  background-color: white;
-  gap: 20px;
-  text-align: center;
-  padding: 10px;
-  justify-content: stretch;
-  justify-content: center;
-  align-items: center;
-}
-.Registros .RegsBody .RegbProducts {
-  grid-area: 1/1/3/1;
-  border-radius: 5px;
-  margin: 40px 20px;
-  box-shadow: 3.3333333333px 10px 20px #363535;
-  background-color: white;
-}
-
-.MenuPrl {
-  display: grid;
-  grid-template: 10% 80% 10%/repeat(11, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 5px;
-  grid-area: 1/1/1/1;
-  width: 100%;
-  height: 100%;
-}
-.MenuPrl .Informe {
-  grid-area: 1/4/3/1;
-}
-.MenuPrl .Lista {
-  grid-area: 2/4/3/7;
-  display: grid;
-  grid-template: 100%/repeat(3, 1fr);
-  grid-row-gap: 20px;
-}
-.MenuPrl .Lista .Imgs {
   grid-area: 1/1/1/1;
 }
-.MenuPrl .Lista .Descriptions {
-  grid-area: 1/2/1/4;
+.PokemonView .PokemonContentView .PokemonName {
+  grid-area: 1/1/1/5;
 }
-.MenuPrl .Detalles {
-  grid-area: 2/7/3/12;
+.PokemonView .PokemonContentView .PokemonIMG {
+  grid-area: 2/1/4/5;
 }
-.MenuPrl .Botones {
-  grid-area: 3/1/4/12;
+.PokemonView .PokemonContentView .PokemonHeader {
+  grid-area: 1/5/1/7;
 }
-.MenuPrl .SesionExclavo {
-  grid-area: 1/4/1/8;
+.PokemonView .PokemonContentView .PokemonBody {
+  grid-area: 2/5/3/7;
 }
-.MenuPrl .SesionMaestro {
-  grid-area: 1/8/1/12;
+.PokemonView .PokemonContentView .PokemonFooter {
+  grid-area: 3/5/4/7;
 }
 
 .PopupView {
   visibility: hidden;
   position: fixed;
-  bottom: 50%;
-  top: 50%;
-  left: 50%;
-  right: 50%;
+  top: 5%;
+  left: 5%;
+  right: 70%;
+  bottom: 290%;
   background-color: white;
   border-radius: 10px;
   box-shadow: 3.3333333333px 10px 20px #363535;
