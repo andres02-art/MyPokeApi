@@ -3,17 +3,17 @@
     @if $swap == "LogView"
         visibility: hidden
         position: fixed
-        bottom: 30%
+        bottom: 5%
         left: 200%
-        right: 20%
-        top: 30%
+        right: 5%
+        top: 5%
     @else if $swap == "PokeView"
         visibility: hidden
         position: fixed
-        bottom: 200%
-        left: 30%
-        right: 30%
-        top: 30%
+        bottom: 5%
+        left: 5%
+        right: 5%
+        top: 200%
     @else if $swap == "Login"
         visibility: hidden
         position: fixed
@@ -28,25 +28,35 @@
         top: 50%
         left: 50%
         right: 50%
+    @else if $swap == "BasicView"
+        visibility: hidden
+        position: fixed
+        bottom: 200%
+        top: 0%
+        left: 0%
+        right: 0%
 @mixin Lookat_page($swap)
     @if $swap == "Maxize_Window"
         grid-area: 1/1/1/1
         width: 100%
         height: 100%
+    @else if $swap == "Maxize"
+        width: 100%
+        height: 100%
     @else if $swap == "LogView"
         visibility: visible
         position: fixed
-        bottom: 2%
-        left: 70%
-        right: 2%
-        top: 2%
+        bottom: 5%
+        left: 20%
+        right: 5%
+        top: 5%
     @else if $swap == "PokeView"
         visibility: visible
         position: fixed
-        bottom: 10%
-        left: 3%
-        right: 3%
-        top: 3%
+        bottom: 0%
+        left: 0%
+        right: 0%
+        top: 0%
     @else if $swap == "Popup"
         visibility: visible
         position: fixed
@@ -54,13 +64,6 @@
         left: 30%
         right: 30%
         top: 30%
-    @else if $swap == "Login"
-        visibility: visible
-        position: fixed
-        bottom: 35%
-        top: 35%
-        left: 35%
-        right: 35%
 @mixin Delete_page 
  margin: 0
  padding: 0
@@ -74,3 +77,9 @@
  justify-content: stretch
  justify-content: center
  align-items: center
+@mixin Dark_Box()
+    background-color: white
+    border: 0px solid transparent
+    border-radius: $base $base
+    margin: $base
+    box-shadow: $base / 3 $base / 5 $base / 2 black
