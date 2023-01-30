@@ -167,7 +167,7 @@ button:hover, .button:hover {
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
 }
-.LogView .LogViewForm .LogViewIn {
+.LogView .LogViewForm .LogViewRecovery {
   grid-area: 1/2/3/2;
   background-color: white;
   border: 0px solid transparent;
@@ -175,7 +175,7 @@ button:hover, .button:hover {
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
 }
-.LogView .LogViewForm .LogViewRecovery {
+.LogView .LogViewForm .LogViewIn {
   grid-area: 3/2/5/2;
   background-color: white;
   border: 0px solid transparent;
@@ -281,26 +281,33 @@ button:hover, .button:hover {
   grid-area: 1/2/1/3;
 }
 
-.ListRegCen {
-  display: grid;
-  grid-template: auto/50% 50%;
+.ListRegFlow {
+  display: flex;
+  flex-flow: row wrap;
+  flex-basis: 1 100%;
 }
-.ListRegCen p {
+.ListRegFlow p {
   margin: 5px 2.5px;
   border: 0px;
   padding: 0px;
   pad: 0px;
 }
-.ListRegCen input, .ListRegCen select, .ListRegCen textarea {
+.ListRegFlow input, .ListRegFlow select, .ListRegFlow textarea {
   border: 2.5px solid rgba(161, 161, 161, 0.5019607843);
   border-radius: 5px;
   margin: 2.5px 1.6666666667px;
 }
-.ListRegCen .ContentLeft {
-  grid-area: 1/1/1/2;
+.ListRegFlow .ContentLeft {
+  flex: 1 1 25%;
+  height: 30px;
 }
-.ListRegCen .ContentRigth {
-  grid-area: 1/2/1/3;
+.ListRegFlow .ContentRigth {
+  flex: 1 1 70%;
+  height: 30px;
+}
+.ListRegFlow .ContentCenter {
+  flex: 1 1 90%;
+  height: 30px;
 }
 
 .ListRegRev {

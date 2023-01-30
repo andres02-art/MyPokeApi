@@ -37,20 +37,48 @@
     <section class="LogView">
         <form action="" id="LogView">
             <div class="LogViewForm">
-                <div class="LogViewRegister">
-                    <label for="Register">Registrarse</label>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt, mollitia ipsum? Iste, placeat officia architecto explicabo optio eaque suscipit expedita voluptates. Voluptate vitae cumque nostrum quasi dolorem libero soluta impedit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus esse quidem sapiente atque itaque, sed nihil veniam non quas officia voluptas architecto expedita perferendis, magnam libero. Earum obcaecati nihil quos?</p>
-                    <input value="Registrarse" type="button" name="Registrarse" /> 
+                <div class="LogViewRegister ListRegFlow">
+                    <label class="ContentCenter" for="Register">Registrarse</label>
+                    <p class="ContentLeft">Nombre:</p>
+                    <input class="ContentRigth" type="text" name="name" id="Name" placeholder="nombre">
+                    <p class="ContentCenter">Segundo Nombre:</p>
+                    <input class="ContentCenter" type="text" name="fristName" placeholder="segundo nombre" id="fristName">
+                    <p class="ContentLeft">Apellido:</p>
+                    <input class="ContentRigth" type="text" name="lastname" placeholder="apellido" id="Apellido">
+                    <p class="ContentLeft">CC:</p>
+                    <input class="ContentRigth" type="number" minlength="1" maxlength="10"  name="__credentials" placeholder="Cedula" id="Credential">
+                    <p class="ContentLeft">Confirmar cc:</p>
+                    <input type="number" minlength="1" maxlength="10" name="__Ccredentials" id="CCredential" placeholder="Confirmar cedula" max="10" class="ContentRigth">
+                    <hr class="ContentCenter">
+                    <label class="ContentCenter" for="Account">Cuenta</label>
+                    <p class="ContentLeft">Nick:</p>
+                    <input type="text" name="nickName" id="NickName" placeholder="nick" class="ContentRigth">
+                    <p class="ContentLeft">Correo:</p>
+                    <input type="email" name="__address" id="Address" placeholder="Correo" class="ContentRigth">
+                    <p class="ContentLeft">Contraseña:</p>
+                    <input type="password" name="_password" id="password" placeholder="contraseña" class="ContentRigth">
+                    <p class="ContentCenter">Confirmar contraseña:</p>
+                    <input type="password" name="_Cpassword" id="Cpassword" placeholder="Confirmar contraseña" class="ContentCenter">
+                    <hr class="ContentCenter">
+                    <input class="ContentCenter" value="Registrarse" type="button" name="Registrarse" />
                 </div>
-                <div class="LogViewIn">
-                    <label for="LogIn">Iniciar sesión</label>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus, corrupti, iure ratione inventore quod voluptatibus id voluptas est consequuntur similique eligendi doloribus? Veniam numquam libero, cumque dolores quisquam modi possimus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis impedit consequuntur nesciunt explicabo ut ab maxime earum obcaecati consectetur eos libero fugiat mollitia rerum architecto, ea minus laborum sint dolores.</p>
-                    <input value="Iniciar Sesion" type="button" name="LogIn" /> 
+                <div class="LogViewIn ListRegFlow">
+                    <label for="LogIn" class="ContentCenter">Iniciar sesión</label>
+                    <p class="ContentLeft">Nick o Correo:</p>
+                    <input class="ContentRigth" type="text" name="_LogDate" id="LogDate">
+                    <hr class="ContentCenter">
+                    <p class="ContentLeft">Contraseña:</p>
+                    <input type="password" name="_password" id="Password" class="ContentRigth">
+                    <hr class="ContentCenter">
+                    <input class="ContentCenter"value="Iniciar Sesion" type="button" id="LogInUser" name="LogIn" /> 
                 </div>
-                <div class="LogViewRecovery">
-                    <label for="Recovery">Recuperar Cuenta</label>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus cupiditate similique eos cum facilis quas dignissimos. Deleniti natus quaerat aliquid quod voluptatem, magnam ut! Facilis possimus distinctio assumenda provident dolores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, quis quae accusamus molestias velit suscipit ipsam mollitia quas culpa expedita necessitatibus, odit, nam incidunt excepturi aliquam! Expedita, praesentium? Qui, nemo?</p>
-                    <label for="Search">Buscar pokemon</label>
+                <div class="LogViewRecovery ListRegFlow">
+                    <label class="ContentCenter" for="Recovery">Recuperar Cuenta</label>
+                    <hr class="ContentCenter">
+                    <p class="ContentCenter">Correo:</p>
+                    <input type="email" name="__address" id="Address" class="ContentCenter">
+                    <hr class="ContentCenter">
+                    <input class="ContentCenter" value="Recuperar Cuenta" type="button" id="RecoveryUser">
                 </div>
                 <div class="LogViewSearch">
                     <label for="Search">Buscar Pokemon</label>
