@@ -12,6 +12,7 @@ $_SESSION['MasterUser']['MasterPassword'] = '';
 $_SESSION['MasterUser']['MasterService'] = $Service;
 
 $LogIn = ($_SESSION['MasterUser']['MasterConnect'] == 'root') ? "false" : "true" ;
+$pokemonsbd = (SetFetchQuery('Select * from pokemon', 'SesionFetch'))
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +33,7 @@ $LogIn = ($_SESSION['MasterUser']['MasterConnect'] == 'root') ? "false" : "true"
             return x.target.matches(y)
         };
         class LoadApp{
-            constructor(Login) {
+            constructor(Login, pokemons) {
                 this.LogInBool = Login
                 this.height = innerHeight
                 this.width = innerWidth
@@ -45,7 +46,7 @@ $LogIn = ($_SESSION['MasterUser']['MasterConnect'] == 'root') ? "false" : "true"
             }
         }
         document.addEventListener('DOMContentLoaded', (ev)=>{
-            new LoadApp(<?php echo $LogIn; ?>);
+            new LoadApp(<?php echo $LogIn; ?>, <?php echo ReStarPokemons()?>);
         })
     </script>
     <!-- log view -->
@@ -124,13 +125,10 @@ $LogIn = ($_SESSION['MasterUser']['MasterConnect'] == 'root') ? "false" : "true"
         </form>
             <div class="BasicViewPokeList">
                 <?php
-                $CurrentFetch = SetFetchQuery("Select * from pokemon", 'fetchPokemons');
-                if ($CurrentFetch != '') {
-                    ReStarPokemons();
-                } else {
-                    echo $CurrentFetch;
-                }
+                $CurrentFetch = ReStarPokemons();
+                echo $CurrentFetch;
                 ?>
+
                     <!--<li>el</li>-->
                     <!--<li>el</li>-->
                     <!--<li>el</li>-->
