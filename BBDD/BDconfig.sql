@@ -1,5 +1,5 @@
 SET GLOBAL event_scheduler="ON";
-SET GLOBAL wait_timeout=600;
+SET GLOBAL wait_timeout=5000;
 
 insert into person(ID_Person, name, lastname, __credentials)values('1000851592andres', 'andres', 'arregoces', 1000851592) on duplicate key update __credentials=1000851592;
 insert into _developer(no, PrsID_Person, _nickName, _address) values('1000851592david', '1000851592andres', 'RubRubPage', 'a.arregoces@gmail.com') on duplicate key update no='1000851592david';
