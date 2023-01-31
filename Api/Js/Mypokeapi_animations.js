@@ -9,9 +9,9 @@ class animatedObjs {
     this.nameAnimate = led + background
     this.DefaultAnimate = null
     this.animation = [animate1, animate2];
-    this.pantalla = document.querySelector(`.${led}`);
+    this.pantalla = window.document.body.querySelector(`.${led}`);
     this.OldLed = led
-    this.fondo = document.querySelector(`.${background}`);
+    this.fondo = window.document.body.querySelector(`.${background}`);
     this.OldBG = background
     this.retraso = delay * 1000
     this.NaturalStage = ``

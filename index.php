@@ -1,3 +1,18 @@
+<?php
+session_start();
+include('./Api/php/Security.php');
+include('./Api/php/Funciones.php');
+if(!($Service = $_SERVER['HTTP_HOST'])){
+    throw new Exception("Servidor invalido", 1);
+}
+$userRoot = mysqli_query(mysqli_connect('localhost', 'root', '', 'mysql'), "Select * from user where user.user='root' AND user.host = 'localhost'")->fetch_assoc();
+$_SESSION['MasterUser']['User'] = $userRoot;
+$_SESSION['MasterUser']['MasterConnect'] = 'root';
+$_SESSION['MasterUser']['MasterPassword'] = '';
+$_SESSION['MasterUser']['MasterService'] = $Service;
+
+$LogIn = ($_SESSION['MasterUser']['MasterConnect'] == 'root') ? "false" : "true" ;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyPokeApi</title>
     <script src="./Api/Js/LoadApp.js"></script>
-    <script src="./Api/Js/Mypokeaip_animations.js"></script>
+    <script src="./Api/Js/Mypokeapi_animations.js"></script>
     <link rel="stylesheet" href="./Assets/Css/HojaDeEstilosPoke.css">
     <link rel="shortcut icon" href="./Assets/Img/icons/MyPokeIcon.png" type="image/x-icon">
 </head>
@@ -30,7 +45,7 @@
             }
         }
         document.addEventListener('DOMContentLoaded', (ev)=>{
-            new LoadApp();
+            new LoadApp(<?php echo $LogIn; ?>);
         })
     </script>
     <!-- log view -->
@@ -108,12 +123,20 @@
             </div>
         </form>
             <div class="BasicViewPokeList">
-                    <li>el</li>
-                    <li>el</li>
-                    <li>el</li>
-                    <li>el</li>
-                    <li>el</li>
-                    <li>el</li>
+                <?php
+                $CurrentFetch = SetFetchQuery("Select * from pokemon", 'fetchPokemons');
+                if ($CurrentFetch != '') {
+                    ReStarPokemons();
+                } else {
+                    echo $CurrentFetch;
+                }
+                ?>
+                    <!--<li>el</li>-->
+                    <!--<li>el</li>-->
+                    <!--<li>el</li>-->
+                    <!--<li>el</li>-->
+                    <!--<li>el</li>-->
+                    <!--<li>el</li>-->
             </div>
     </section>
     <!-- Popep view -->
