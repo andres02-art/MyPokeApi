@@ -68,7 +68,7 @@ button img {
   top: 5%;
   left: 5%;
   right: 70%;
-  bottom: 90%;
+  bottom: 86%;
 }
 
 * {
@@ -167,6 +167,9 @@ button:hover, .button:hover {
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
   padding: 20px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: 0px;
 }
 .LogView .LogViewForm .LogViewIn {
   grid-area: 1/2/3/2;
@@ -176,6 +179,9 @@ button:hover, .button:hover {
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
   padding: 20px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: 0px;
 }
 .LogView .LogViewForm .LogViewRecovery {
   grid-area: 3/2/5/2;
@@ -185,6 +191,9 @@ button:hover, .button:hover {
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
   padding: 20px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: 0px;
 }
 .LogView .LogViewForm .LogViewSearch {
   grid-area: 4/1/4/1;
@@ -194,6 +203,9 @@ button:hover, .button:hover {
   margin: 10px;
   box-shadow: 3.3333333333px 2px 5px black;
   padding: 20px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: 0px;
 }
 
 .PokemonView {
@@ -240,27 +252,10 @@ button:hover, .button:hover {
   right: 70%;
   bottom: 290%;
   background-color: white;
-  border-radius: 10px;
-  box-shadow: 3.3333333333px 10px 20px #363535;
-  display: grid;
-  grid-template: 20% 65% 15%/100%;
-}
-.PopupView .ListRegActive {
-  gap: 20px;
-  text-align: center;
-  padding: 10px;
-  justify-content: stretch;
-  justify-content: center;
-  align-items: center;
-  margin: 2.5px 1.6666666667px 2.5px 1.6666666667px;
-  border: 2.5px solid rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
-}
-.PopupView .ListRegActive:hover {
-  margin: 10px 5px 10px 5px;
-  border: 1.25px solid rgba(0, 0, 0, 0.4);
-  border-radius: 5px;
-  background-color: rgba(44, 120, 202, 0.5);
+  border: 0px solid transparent;
+  border-radius: 10px 10px;
+  margin: 10px;
+  box-shadow: 3.3333333333px 2px 5px black;
 }
 
 .ListReg {
