@@ -61,11 +61,7 @@ if ($pokebd = false) {
             }
         }
         document.addEventListener('DOMContentLoaded', (ev) => {
-            new LoadApp(<?php echo $LogIn; ?>, <?php echo $pokebdbool; ?>, <?php 
-            $externalDomine = mysqli_multi_query(mysqli_connect('localhost', 'root', '', 'mypokebd'), "SELECT * from external_domine");
-                  echo $_SESSION['ExternalDomine'];
-
-            ?>);
+            new LoadApp(<?php echo $LogIn; ?>, <?php echo $pokebdbool; ?>);
         })
     </script>
     <!-- log view -->
