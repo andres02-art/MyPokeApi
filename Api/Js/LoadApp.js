@@ -5,7 +5,9 @@ class LoadPokeApi{
         this.BasicViewPokemonView = new animatedObjs('PokemonView', 'BasicView', 'apear', 'desapear', 0)
         this.ViewLogBasicView = new animatedObjs('LogView', 'BasicView', 'desapear', 'desapear', 0)
         this.AlertPopupPopup = new animatedObjs('PopupView', 'PopupView', 'enable', 'enable', 0)
+        this.fetchresponse = {response: [], query: [], sendfetch: ()=>{new FetchResponse(this.fetchresponse)}}
         this.alertLog()
+        this.bbddRelog()
         this.SetInnerSize()
         this.OnLoad()
         this.cilckevent()
@@ -29,9 +31,25 @@ class LoadPokeApi{
         window.document.querySelector(`#${x}`).submit()
     }
 
+    LogUser(x){
+        let inputactivity = document.createElement("input")
+        inputactivity.setAttribute("name", "Activity")
+        inputactivity.setAttribute("value", x)
+        document.querySelector('#LogView').appendChild(inputactivity)
+        document.querySelector('#LogView').submit()
+    }
+
     alertLog(){
-        this.AlertPopupPopup.play_animate()
+     //   this.AlertPopupPopup.play_animate()
         
+    }
+
+    bbddRelog(){
+        if (this.App.databasePoke !== true) {
+            this.fetchresponse.response = ['FillContent', this.App.datafetch]
+            this.fetchresponse.query = ['__init__db']
+            this.fetchresponse.sendfetch()
+        }
     }
 
     LogViewForm(){
@@ -90,6 +108,9 @@ class LoadPokeApi{
             else if (tg(ev, '#CBBasicView')) this.BackBasicView(ev.target.attributes.myled.value)
             else if (tg(ev, '#SearchPokemon')) this.SearchPokemon(ev.target.attributes.myled.value)
             else if (tg(ev, '#FetchPokemons')) this.UpdatePokemons('ReStarPokemons')
+            else if (tg(ev, '#RegisterUser')) this.LogUser(ev.target.attributes.active.value)
+            else if (tg(ev, '#LogInUser')) this.LogUser(ev.target.attributes.active.value)
+            else if (tg(ev, '#RecoveryUser')) this.LogUser(ev.target.attributes.active.value)
         })
     }
 }
