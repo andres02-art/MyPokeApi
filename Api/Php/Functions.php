@@ -57,22 +57,22 @@ function ReStarPokemons()
     $pokefile = file_get_contents($pokelink['_link']);
     SetFetchQuery("UPDATE external_domine SET _request = '$pokefile' where external_domine.ID_External_Domine="."'$pokelink[ID_External_Domine]'", "SessionInsert");
 }
-function InvalidProcess($RegError)
+function ResponseProcess($Reg)
 {
-    print_r($RegError);
+    print_r($Reg);
 ?>
     <script>
-        let queryAnimate = new animatedObjs('Alert', 'MenuPrl', 'enable', 'darken', 0.3);
+        let queryAnimate = new animatedObjs('PopupView', 'PopupView', 'enable', 'enable', 5);
         queryAnimate.Backup_animate('play_animate()', 'Reset')
-        let contentInvalidProcess = {
-            query: ['NewInvalidProcess', '.PopupView'], 
+        let contentResponseProcess = {
+            query: ['NewResponseProcess', '.PopupView'], 
             response: ['FillContent', 'Popup', {
-                contenido: `<br><b><?php echo $RegError[0]?></b><br>`,
-                error: `<?php echo $RegError[1]?>`,
-                CodeError: `<?php echo $RegError[2]?>`
+                contenido: `<br><b><?php echo $Reg[0]?></b><br>`,
+                error: `<?php echo $Reg[1]?>`,
+                CodeError: `<?php echo $Reg[2]?>`
             }]
         }
-        localStorage.setItem("LastFetchQuery", JSON.stringify(contentInvalidProcess))
+        localStorage.setItem("LastFetchQuery", JSON.stringify(contentResponseProcess))
         window.location.assign('../../index.php')
     </script>
 <?php
