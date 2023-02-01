@@ -52,6 +52,7 @@ class animatedObjs {
  Enddelay_animation(x, y) {
   //  si tiene unretrazo se realiza
    setTimeout(() => {
+    let promise = new Promise((resolve)=>{})
     this.end_animate(x, y)
    }, this.delay);
  }

@@ -12,8 +12,9 @@ $_SESSION['MasterUser']['MasterPassword'] = '';
 $_SESSION['MasterUser']['MasterService'] = $Service;
 
 $LogIn = ($_SESSION['MasterUser']['MasterConnect'] == 'root') ? "false" : "true";
+$_SESSION['ExternalDomine'] = mysqli_query(ReStartConnect(), "SELECT _request FROM external_domine");
 $pokebd = SetFetchQuery("SELECT _request FROM external_domine", "SessionFetch");
-if ($pokebd['_request'] == 'fetch_Content') {
+if ($pokebd = false) {
     $pokebdbool = 'false';
     ReStarPokemons();
     $pokeDescription = SetFetchQuery("SELECT _description FROM pokemon", "SesionFetch");
@@ -43,10 +44,11 @@ if ($pokebd['_request'] == 'fetch_Content') {
             return x.target.matches(y)
         };
         class LoadApp {
-            constructor(Login, pkbdbool, __init__bd) {
+            constructor(Login, pkbdbool, bd) {
                 this.LogInBool = Login
                 this.height = innerHeight
                 this.databasePoke = pkbdbool
+                this.bdpokemons = bd
                 this.width = innerWidth
                 this.Storage = localStorage
                 this.DomineApi = "https://pokeapi.co/api/v2/pokemon/"
@@ -57,7 +59,11 @@ if ($pokebd['_request'] == 'fetch_Content') {
             }
         }
         document.addEventListener('DOMContentLoaded', (ev) => {
-            new LoadApp(<?php echo $LogIn; ?>, <?php echo $pokebdbool; ?>);
+            new LoadApp(<?php echo $LogIn; ?>, <?php echo $pokebdbool; ?>, <?php 
+            $externalDomine = mysqli_multi_query(mysqli_connect('localhost', 'root', '', 'mypokebd'), "SELECT * from external_domine");
+                  echo $_SESSION['ExternalDomine'];
+
+            ?>);
         })
     </script>
     <!-- log view -->
@@ -114,7 +120,7 @@ if ($pokebd['_request'] == 'fetch_Content') {
                 </div>
                 <div class="LogViewSearch ListRegFlow">
                     <label class="ContentLeft" for="Search">Buscar</label>
-                    <input class="ContentRigth" type="search" placeholder="Buscar Pokemon" id="PokeSeart"
+                    <input class="ContentRigth" type="search" placeholder="Buscar Pokemon" id="pokemonSearchl"
                         name="__pokemon">
                     <input class="ContentMid" value="Buscar" type="button" myled="LogView" id="SearchPokemon" />
                     <input class="ContentMid" type="button" value="Cerrar" id="CBBasicView" myled="LogView">
@@ -136,8 +142,8 @@ if ($pokebd['_request'] == 'fetch_Content') {
                 </div>
                 <div>
                     <label for="Search">Buscar Pokemon</label>
-                    <input type="search" id="PokeSeart" name="__pokemon">
-                    <input value="Buscar Pokemon" type="button" name="" myled="BasicView" id="SearchPokemon" />
+                    <input type="search" id="pokemonSearchb" name="__pokemon">
+                    <input value="Buscar Pokemon" type="button" name="" myled="BasicView" id="SearchPokemonb" />
                     <input value="Iniciar sesion" type="button" name="" id="LogInUser" />
                 </div>
             </div>
@@ -192,7 +198,7 @@ if ($pokebd['_request'] == 'fetch_Content') {
             <div class="PokemonFooter">
                 <form action="">
                     <label for="Search">Buscar Pokemon</label>
-                    <input value="" type="search" id="PokeSeart" name="__pokemon">
+                    <input value="" type="search" id="pokemonSearch" name="__pokemon">
                     <input value="" type="button" name="" id="SearchPokemon">Buscar Pokemon />
                 </form>
             </div>

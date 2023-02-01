@@ -6,6 +6,7 @@ class LoadPokeApi{
         this.ViewLogBasicView = new animatedObjs('LogView', 'BasicView', 'desapear', 'desapear', 0)
         this.AlertPopupPopup = new animatedObjs('PopupView', 'PopupView', 'enable', 'enable', 0)
         this.fetchresponse = {response: [], query: [], sendfetch: ()=>{new FetchResponse(this.fetchresponse)}}
+        this.LookForStorage()
         this.alertLog()
         this.bbddRelog()
         this.SetInnerSize()
@@ -13,18 +14,34 @@ class LoadPokeApi{
         this.cilckevent()
     }
 
+    LookForStorage(){
+        let Lastfetch = JSON.parse(this.App.Storage.getItem(`LastFetchQuery`)), Lastanimations = JSON.parse(this.App.Storage.getItem(`LastObjAnimation`)), backupAnimations;
+        if (Lastanimations) {
+            backupAnimations = new animatedObjs(Lastanimations, true)
+            backupAnimations.retrive_animates()
+        }
+        if (Lastfetch) {
+            this.fetchresponse.response = Lastfetch.response
+            this.fetchresponse.query = Lastfetch.query
+            this.fetchresponse.sendfetch()
+            localStorage.removeItem(`LastFetchQuery`)
+            localStorage.removeItem(`LastObjAnimation`)
+            this.App.Storage = null
+        }
+    }
+
     UpdatePokemons(x){
         let UpdatePokemons = document.createElement("form")
         UpdatePokemons.setAttribute("method", "POST")
-        UpdatePokemons.setAttribute("action", "./Api/php/Reestart.php")
+        UpdatePokemons.setAttribute("action", "./Api/php/Restartbd.php")
         UpdatePokemons.setAttribute("id", x)
         UpdatePokemons.append(document.createElement("input"))
         UpdatePokemons.children[0].setAttribute("name", "Pokemon")
         UpdatePokemons.children[0].setAttribute("value", "true")
         UpdatePokemons.children[0].setAttribute("type", "hidden")
         UpdatePokemons.append(document.createElement("input"))
-        UpdatePokemons.children[1].setAttribute("name", "Content_Fetch")
-        UpdatePokemons.children[1].setAttribute("value", "")
+        UpdatePokemons.children[1].setAttribute("name", "_request")
+        UpdatePokemons.children[1].setAttribute("value", "fetch_Content")
         UpdatePokemons.children[1].setAttribute("type", "texbox")
         console.log(UpdatePokemons)
         window.document.body.appendChild(UpdatePokemons)
@@ -56,7 +73,7 @@ class LoadPokeApi{
 
     }
 
-    SearchPokemon(x){
+    SearchPokemon(x, y){
         switch (x) {
             case 'BasicView':
                 this.BasicViewPokemonView.play_animate()
@@ -68,6 +85,9 @@ class LoadPokeApi{
             default:
                 break;
         }
+        this.fetchresponse.response=['FillContent', y]
+        this.fetchresponse.query=['init_search', this.App.bdpokemons ]
+        this.fetchresponse.sendfetch()
     }
     
     logInUser(){
@@ -106,7 +126,7 @@ class LoadPokeApi{
         document.addEventListener('click', (ev)=>{
             if (tg(ev, '#LogInUser')) this.logInUser()
             else if (tg(ev, '#CBBasicView')) this.BackBasicView(ev.target.attributes.myled.value)
-            else if (tg(ev, '#SearchPokemon')) this.SearchPokemon(ev.target.attributes.myled.value)
+            else if (tg(ev, '#SearchPokemonb')) this.SearchPokemon(ev.target.attributes.myled.value, document.querySelector('#pokemonSearchb').value)
             else if (tg(ev, '#FetchPokemons')) this.UpdatePokemons('ReStarPokemons')
             else if (tg(ev, '#RegisterUser')) this.LogUser(ev.target.attributes.active.value)
             else if (tg(ev, '#LogInUser')) this.LogUser(ev.target.attributes.active.value)

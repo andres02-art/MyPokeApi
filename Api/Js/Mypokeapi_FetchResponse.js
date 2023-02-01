@@ -56,7 +56,9 @@ class FetchResponse{
                     namesPokemons.setAttribute('name', `_NamesPokemons[${i}]`)
                 });
                 break;
-        
+            case 'init_search':
+                console.log(this.fetch)
+                break;        
             default:
                 break;
         }
