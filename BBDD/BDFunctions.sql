@@ -2,6 +2,7 @@ Use mypokebd;
 
 /*
 funicionamiento dinamico de la base de datos al ser editada
+//version 0.1
 */
 
 DELIMITER ;;

@@ -3,6 +3,7 @@ create database mypokebd character set = "utf8mb4" collate = "utf8mb4_unicode_no
 
 /*
 Creación estructurada de la base de datos desde las tablas o diagramado ER en starUMl
+//version 0.1
 */
 create or replace table person(
     ID_Person varchar(15) unique not null,

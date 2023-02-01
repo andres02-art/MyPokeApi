@@ -1,4 +1,5 @@
 class animatedObjs {
+//version 0.1
   // esta clase establece en un objeto como la relacion entre dos etiquetas html mediante su atributo class
   // principalmente usada para la animation entre ellas
  constructor(led, background, animate1, animate2, delay) {

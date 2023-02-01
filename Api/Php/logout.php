@@ -1,4 +1,5 @@
 <?php 
+//version 0.1
 session_start();
     session_unset();
     if (isset($_SESSION['MasterUserNickname'])) {

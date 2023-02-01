@@ -1,4 +1,5 @@
 <?php
+//version 0.1
     function SecurityLogin($sesion)
     {
         if (isset($sesion)) {

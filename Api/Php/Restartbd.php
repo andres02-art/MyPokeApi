@@ -1,5 +1,6 @@
 <script src="../js/Mypokeapi_animations.js"></script>
 <?php
+//version 0.1
 if (!isset($_SESSION)) {
     session_start();
 }

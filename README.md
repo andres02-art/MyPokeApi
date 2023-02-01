@@ -49,3 +49,6 @@ Versionado delta del aplicativo
 
 1.0
 intica la version completa
+
+
+//version 0.1

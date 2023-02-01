@@ -1,4 +1,6 @@
 class LoadPokeApi{
+    //
+//version 0.1
     constructor(Load) {
         this.App=Load
         this.BasicViewLogView = new animatedObjs('LogView', 'BasicView', 'apear', 'darken', 3)

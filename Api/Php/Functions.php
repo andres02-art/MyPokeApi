@@ -1,4 +1,5 @@
 <?php
+//version 0.1
 if (!isset($_SESSION)) {
     session_start();
 }

@@ -1,4 +1,5 @@
 class FetchResponse{
+//version 0.1
     constructor(Fetch, ExtraFetch = false) {
         if (ExtraFetch === true) {
             this.IdFetch = document.querySelector(Fetch)

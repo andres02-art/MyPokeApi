@@ -1,5 +1,6 @@
-<script src="../js/Mypokeapi_animations.js"></script>
+<script src="../js/Mypokeapi_animations.js"></script>/version 0.1
 <?php
+//version 0.1
 if (!isset($_SESSION)) {
     session_start();
 }
