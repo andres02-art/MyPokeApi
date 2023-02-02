@@ -85,7 +85,6 @@ function SessionFetch($fetch)
 function SessionInsert($fetch)
 {
     $responseqli = mysqli_multi_query(ReStartConnect(), $fetch);
-    echo $responseqli;
 }
 function SetFetchQuery($fetch, $type)
 {
