@@ -54,10 +54,9 @@ function ReStartConnect() {
 }
 function ReStarPokemons()
 {
-    $pokelink = SetFetchQuery("SELECT ID_External_Domine, _link FROM external_domine", "externalDomine");
-    print_r($pokelink);
-    $pokefile = file_get_contents($pokelink['fila_1']['_link'][0]);
-    SetFetchQuery("UPDATE external_domine SET _request = '$pokefile' where external_domine.ID_External_Domine='$pokelink[fila_1][ID_External_Domine][0]'", "SessionInsert");
+    $pokelink = SetFetchQuery("SELECT ID_External_Domine, _link FROM external_domine", "externalDomine")->fetch_assoc();
+    $pokefile = file_get_contents($pokelink['_link']);
+    SetFetchQuery("UPDATE external_domine SET _request = '$pokefile' where external_domine.ID_External_Domine='$pokelink[ID_External_Domine]'", "SessionInsert");
 }
 function ResponseProcess($Reg)
 {
@@ -81,23 +80,12 @@ function ResponseProcess($Reg)
 }
 function SessionFetch($fetch)
 {
-    $responseqli = mysqli_query(ReStartConnect(), $fetch);
-    if ($responseqli == true) {
-        $response = mysqli_fetch_assoc(mysqli_query(ReStartConnect(), $fetch));
-    }    else{
-      foreach ( $responseqli as $key => $value) {
-        ++$key;
-         foreach ($value as $ke => $valu) {
-            $response['fila_'.$key][$ke] = [$valu];
-        }
-    }
-    return $response;
-    }
+    return mysqli_query(ReStartConnect(), $fetch);
 }
 function SessionInsert($fetch)
 {
     $responseqli = mysqli_multi_query(ReStartConnect(), $fetch);
-    print_r($responseqli);
+    echo $responseqli;
 }
 function SetFetchQuery($fetch, $type)
 {

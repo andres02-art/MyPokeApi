@@ -14,12 +14,11 @@ $_SESSION['MasterUser']['MasterPassword'] = '';
 $_SESSION['MasterUser']['MasterService'] = $Service;
 
 $LogIn = ($_SESSION['MasterUser']['MasterConnect'] == 'root') ? "false" : "true";
-$_SESSION['ExternalDomine'] = mysqli_query(ReStartConnect(), "SELECT _request FROM external_domine");
-$pokebd = SetFetchQuery("SELECT _request FROM external_domine", "SessionFetch");
-if ($pokebd = false) {
+$pokebd = SetFetchQuery("SELECT _request FROM external_domine", "SessionFetch")->fetch_assoc();
+if ($pokebd['_request'] = 'fetch_Content') {
     $pokebdbool = 'false';
     ReStarPokemons();
-    $pokeDescription = SetFetchQuery("SELECT _description FROM pokemon", "SesionFetch");
+    $pokemontable = SetFetchQuery("SELECT * FROM pokemon", "SesionFetch");
 }else {
     $pokebdbool = 'true';
 }
@@ -61,7 +60,7 @@ if ($pokebd = false) {
             }
         }
         document.addEventListener('DOMContentLoaded', (ev) => {
-            new LoadApp(<?php echo $LogIn; ?>, <?php echo $pokebdbool; ?>);
+            new LoadApp(<?php echo $LogIn.", ".$pokebdbool.", ".SetFetchQuery("SELECT _request FROM external_domine", "SessionFetch")->fetch_assoc()['_request']; ?>);
         })
     </script>
     <!-- log view -->
