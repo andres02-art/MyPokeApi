@@ -65,9 +65,9 @@ class LoadPokeApi{
 
     bbddRelog(){
         if (this.App.databasePoke !== true) {
-            this.fetchresponse.response = ['FillContent', this.App.databasePoke]
+            this.fetchresponse.response = ['FillContent', this.App.bdpokemons]
             this.fetchresponse.query = ['__init__db']
-            this.fetchresponse.sendfetch()
+            document.addEventListener('loadeddata', this.fetchresponse.sendfetch())
         }
     }
 

@@ -23,43 +23,44 @@ class FetchResponse{
                 solicita contenido de las url dadas y lo guarda en @var (array) resultData
                 solicita imagen/sprites de las url dadas y lo guarda en @var (array) IMGSresults
                 */
-                this.mypokeapiconnect = [];
-                
-
-                let fetchresults, resultData = [], IMGSresults = [];
-                let a = fetch('https://pokeapi.co/api/v2/pokemon/')
-                a.then(response=>response.json()).then(data=>{
-                    console.log(data);
-                })
-                console.
-                console.log(this.fetch.response[1].results)
-                this.fetch.response[1].results.forEach((e, i) =>{
-                    this.pokeapiconnect[0][i] = await(fetch(e.url).then(response=>response.json()).then(data=>resultData[i]=data))
-                    }
-                )
-                console.log(resultData)
-                resultData.forEach((e, i) =>{
-                    fetch(e.forms[0].url).then(response=>response.json()).then(data=>IMGSresults[i]=data)
-                    }
-                )
-                console.log(IMGSresults)
-                this.Pokemons = {names: this.fetch.response.results, datas: resultData, imgs: IMGSresults}
-                console.log(this.Pokemons)                
+                this.Pokemons = {names: [], datas: [], imgs: []}
+                let fetchresult;
+                fetchresult = this.fetch.response[1].results.forEach((e, i) =>{
+                    fetch(e.url).then(response=>response.json()).then((data) =>{
+                        this.Pokemons.names.push(e)
+                        this.Pokemons.datas.push(data)
+                        fetch(data.forms[0].url).then(response=>response.json()).then((imgsdata)=>{
+                            this.Pokemons.imgs.push(imgsdata)
+                            if (this.Pokemons.imgs.length === 20) {
+                                this.fillContent('pokemonsbd')                                
+                            }
+                        }).catch((err)=>console.log(err))
+                    }).catch((er)=>console.log(er))
+                    })
+                //console.log(this.mypokefetch)
+                break;
+            case 'init_search':
+                console.log(this.fetch)
+                break;        
+            case 'pokemonsbd':
+                console.log(this.Pokemons)
                 let InitPokeBD = document.createElement('form'), 
-                namesPokemons = document.createElement('input'), 
+                namesPokemons = [], 
                 datasPokemons = document.createElement('input'), 
                 imgsPokemons = document.createElement('input');
                 InitPokeBD.setAttribute('id', '__init__bd')
                 InitPokeBD.setAttribute('method', 'post')
                 InitPokeBD.setAttribute('action', './Api/php/Restartbd')
                 this.Pokemons.names.forEach((e, i) => {
-                    namesPokemons.setAttribute('value', JSON.stringify(e))
-                    namesPokemons.setAttribute('name', `_NamesPokemons[${i}]`)
+                    namesPokemons[i] = document.createElement('input')
+                    namesPokemons[i].setAttribute('value', JSON.stringify(e))
+                    namesPokemons[i].setAttribute('name', `_NamesPokemons[${i}]`)
+                    namesPokemons[i].setAttribute('id', `myPoke${i}`)
+                    namesPokemons[i].setAttribute('type', 'hidden')
+                    InitPokeBD.append(namesPokemons[i])
                 });
+                console.log(InitPokeBD)
                 break;
-            case 'init_search':
-                console.log(this.fetch)
-                break;        
             default:
                 break;
         }
