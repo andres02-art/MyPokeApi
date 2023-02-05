@@ -15,12 +15,14 @@ $_SESSION['MasterUser']['MasterService'] = $Service;
 
 $LogIn = ($_SESSION['MasterUser']['MasterConnect'] == 'root') ? "false" : "true";
 $pokebd = SetFetchQuery("SELECT _request FROM external_domine", "SessionFetch")->fetch_assoc();
-if ($pokebd['_request'] = 'fetch_Content') {
-    $pokebdbool = 'false';
-    ReStarPokemons();
-    $pokemontable = SetFetchQuery("SELECT * FROM pokemon", "SesionFetch");
-}else {
+    $pokemontable = SetFetchQuery("SELECT * FROM pokemon where 1", "SessionFetch")->fetch_assoc();
+    if ($pokemontable == '') {
+   $pokebdbool = 'false';
+    }else {
     $pokebdbool = 'true';
+    }
+if ($pokebd['_request'] = 'fetch_Content') {
+    ReStarPokemons();
 }
     ?>
 <!DOCTYPE html>
@@ -60,7 +62,12 @@ if ($pokebd['_request'] = 'fetch_Content') {
             }
         }
         document.addEventListener('DOMContentLoaded', (ev) => {
-            new LoadApp(<?php echo $LogIn.", ".$pokebdbool.", ".SetFetchQuery("SELECT _request FROM external_domine", "SessionFetch")->fetch_assoc()['_request']; ?>);
+            new LoadApp(<?php echo $LogIn . ", " . $pokebdbool . ", ";
+            if ($pokemontable == '') {
+                echo SetFetchQuery("SELECT _request FROM external_domine", "SessionFetch")->fetch_assoc()['_request'];
+            }else {
+                echo '"Base De datos iniciada"';
+            } ?>);
         })
     </script>
     <!-- log view -->
