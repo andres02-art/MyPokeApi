@@ -42,13 +42,11 @@ try {
 } catch (\Exception $ex) {
     switch ($ex->getCode()) {
         case '1062':
-            //ResponseProcess(['Error', "Usuario Existente, intentelo nuevamente", $ex->getCode()]);
+            ResponseProcess(['Error', "Usuario Existente, intentelo nuevamente", $ex->getCode()]);
             break;
 
         default:
-            //ResponseProcess(['Warming', "ha ocurrido: " . $ex->getMessage(), $ex->getCode()]);
-            echo $ex->getMessage();
-            echo $ex->getCode();
+            ResponseProcess(['Warming', "ha ocurrido: " . $ex->getMessage(), $ex->getCode()]);
             break;
     }
 }
