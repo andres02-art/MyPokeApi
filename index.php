@@ -7,12 +7,13 @@ include('./Api/php/Functions.php');
 if (!($Service = $_SERVER['HTTP_HOST'])) {
     throw new Exception("Servidor invalido", 1);
 }
+if ($_SESSION['LogIn']!=true) {
 $userRoot = mysqli_query(mysqli_connect('localhost', 'root', '', 'mysql'), "Select * from user where user.user='root' AND user.host = 'localhost'")->fetch_assoc();
 $_SESSION['MasterUser']['User'] = $userRoot;
 $_SESSION['MasterUser']['MasterConnect'] = 'root';
 $_SESSION['MasterUser']['MasterPassword'] = '';
 $_SESSION['MasterUser']['MasterService'] = $Service;
-
+}
 $LogIn = ($_SESSION['MasterUser']['MasterConnect'] == 'root') ? "false" : "true";
 $pokebd = SetFetchQuery("SELECT _request FROM external_domine", "SessionFetch")->fetch_assoc();
     $pokemontable = SetFetchQuery("SELECT * FROM pokemon where 1", "SessionFetch")->fetch_assoc();
@@ -101,13 +102,13 @@ if ($pokebd['_request'] = 'fetch_Content') {
                     <input type="password" name="_Cpasswordreg" id="Cpassword" placeholder="Confirmar contraseña"
                         class="ContentCenter">
                     <hr class="ContentCenter">
-                    <input class="ContentCenter" value="Registrarse" active="register" type="button"
+                    <input class="ContentCenter" value="Registrarse" active="Register" type="button"
                         id="RegisterUser" />
                 </div>
                 <div class="LogViewIn ListRegFlow">
                     <label for="LogIn" class="ContentCenter">Iniciar sesión</label>
                     <p class="ContentCenter">Nick o Correo:</p>
-                    <input class="ContentCenter" placeholder="Correo" type="text" name="_LogDate" id="LogDate">
+                    <input class="ContentCenter" placeholder="Correo" type="text" name="_LogData" id="LogData">
                     <hr class="ContentCenter">
                     <p class="ContentLeft">Contraseña:</p>
                     <input type="password" placeholder="Contraseña" name="_password" id="Password" class="ContentRigth">
@@ -148,7 +149,7 @@ if ($pokebd['_request'] = 'fetch_Content') {
                     <label for="Search">Buscar Pokemon</label>
                     <input type="search" id="pokemonSearchb" name="__pokemon">
                     <input value="Buscar Pokemon" type="button" name="" myled="BasicView" id="SearchPokemonb" />
-                    <input value="Iniciar sesion" type="button" name="" id="LogInUser" />
+                    <input value="Iniciar sesion" type="button" name="" id="BVLogInUser" />
                 </div>
             </div>
         </form>
