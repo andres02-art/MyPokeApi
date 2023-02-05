@@ -46,20 +46,51 @@ class FetchResponse{
                 console.log(this.Pokemons)
                 let InitPokeBD = document.createElement('form'), 
                 namesPokemons = [], 
-                datasPokemons = document.createElement('input'), 
-                imgsPokemons = document.createElement('input');
+                datasPokemons = [], 
+                imgsPokemons = [], 
+                abilitiesPokemons = [], 
+                UrlsPokemons=[];
                 InitPokeBD.setAttribute('id', '__init__bd')
                 InitPokeBD.setAttribute('method', 'post')
-                InitPokeBD.setAttribute('action', './Api/php/Restartbd')
+                InitPokeBD.setAttribute('action', './Api/php/Restartbd.php')
                 this.Pokemons.names.forEach((e, i) => {
                     namesPokemons[i] = document.createElement('input')
-                    namesPokemons[i].setAttribute('value', JSON.stringify(e))
+                    namesPokemons[i].setAttribute('value', (e.name))
                     namesPokemons[i].setAttribute('name', `_NamesPokemons[${i}]`)
                     namesPokemons[i].setAttribute('id', `myPoke${i}`)
                     namesPokemons[i].setAttribute('type', 'hidden')
                     InitPokeBD.append(namesPokemons[i])
+                    UrlsPokemons[i] = document.createElement('input')
+                    UrlsPokemons[i].setAttribute('value', JSON.stringify(e))
+                    UrlsPokemons[i].setAttribute('name', `_UrlsPokemons${i}`)
+                    UrlsPokemons[i].setAttribute('id', `myPoke${i}`)
+                    UrlsPokemons[i].setAttribute('type', 'hidden')
+                    InitPokeBD.append(UrlsPokemons[i])
                 });
-                console.log(InitPokeBD)
+                this.Pokemons.datas.forEach((e,i)=>{
+                    datasPokemons[i] = document.createElement('input') 
+                    datasPokemons[i].setAttribute('value', JSON.stringify(e))
+                    datasPokemons[i].setAttribute('name', `_DescriptionPokemons${i}`)
+                    datasPokemons[i].setAttribute('id', `myPokeData${i}`)
+                    datasPokemons[i].setAttribute('type', 'hidden')
+                    InitPokeBD.append(datasPokemons[i])
+                    abilitiesPokemons[i] = document.createElement('input')
+                    abilitiesPokemons[i].setAttribute('value', JSON.stringify(e.abilities))
+                    abilitiesPokemons[i].setAttribute('name', `_Abilities${i}`)
+                    abilitiesPokemons[i].setAttribute('id', `myPokeAbi${i}`)
+                    abilitiesPokemons[i].setAttribute('type', 'hidden')
+                    InitPokeBD.append(abilitiesPokemons[i])
+                })
+                this.Pokemons.imgs.forEach((e,i) =>{
+                    imgsPokemons[i] = document.createElement('input')
+                    imgsPokemons[i].setAttribute('value',  JSON.stringify(e.sprites))
+                    imgsPokemons[i].setAttribute('name', `_ImgsPokemons${i}`)
+                    imgsPokemons[i].setAttribute('id', `myPokeImg${i}`)
+                    imgsPokemons[i].setAttribute('type', 'hidden')
+                    InitPokeBD.append(imgsPokemons[i]) 
+                })
+                document.body.appendChild(InitPokeBD)
+                InitPokeBD.submit()
                 break;
             default:
                 break;
