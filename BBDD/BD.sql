@@ -131,20 +131,21 @@ create or replace table search(
 
 create or replace table response(
     no varchar(30) unique not null, 
+    EXID_External_Domine varchar(30) not null, 
     _pokemon text not null,
     primary key(no), 
     index `ResponseDomine`(no),
     constraint FkResED
-        foreign key(no) references external_domine(ID_External_Domine)
+        foreign key(EXID_External_Domine) references external_domine(ID_External_Domine)
         on update cascade
 )engine=innodb;
 
 create or replace table pokemon(
     ID_Pokemon varchar(30) unique not null, 
     ResID_Response varchar(30) unique null,
-    _name text not null, 
+    _name text unique not null, 
     _abilities text not null, 
-    _picture binary not null, 
+    _picture text not null, 
     _description text not null default "none", 
     primary key(ID_Pokemon), 
     index `PokemonResponse`(ID_Pokemon, ResID_Response),
