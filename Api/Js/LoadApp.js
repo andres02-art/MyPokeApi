@@ -126,7 +126,7 @@ class LoadPokeApi{
     
     cilckevent(){
         document.addEventListener('click', (ev)=>{
-            if (tg(ev, '#LogInUser')) this.logInUser()
+            if (tg(ev, '#BVLogInUser')) this.logInUser()
             else if (tg(ev, '#CBBasicView')) this.BackBasicView(ev.target.attributes.myled.value)
             else if (tg(ev, '#SearchPokemonb')) this.SearchPokemon(ev.target.attributes.myled.value, document.querySelector('#pokemonSearchb').value)
             else if (tg(ev, '#FetchPokemons')) this.UpdatePokemons('ReStarPokemons')
